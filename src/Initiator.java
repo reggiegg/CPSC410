@@ -52,8 +52,11 @@ public class Initiator {
 				if (javaNCSSProcess.exitValue() != 0){
 					throw new IOException("javaNCSS did not properly execute.");
 				}
+				
 				javaNCSSProcess.destroy();
 				
+				// JavaNCSSParser JavaNCSSParser = new JavaNCSSParser();  // something like this for the parsing stage
+				// JavaNCSSParser.parse(JavaNCSSStats);
 				
 			} catch (IOException e) {
 				e.printStackTrace();
