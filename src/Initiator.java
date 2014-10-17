@@ -1,5 +1,8 @@
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Scanner;
 
 
@@ -55,7 +58,7 @@ public class Initiator {
 				}
 				
 				System.out.println("Executing JavaNCSS...");
-				Process javaNCSSProcess = rt.exec("javancss-32.53/bin/javancss -xml -all -out "+javaNCSSStats.getAbsolutePath()+" "+modulepath.getAbsolutePath());
+				Process javaNCSSProcess = rt.exec("javancss-32.53/bin/javancss -recursive -xml -all -out "+javaNCSSStats.getAbsolutePath()+" "+modulepath.getAbsolutePath());
 				javaNCSSProcess.waitFor();
 				
 				if (javaNCSSProcess.exitValue() != 0){
@@ -71,6 +74,22 @@ public class Initiator {
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			// here's where it will call the data aggregator
+			
+			// then open default browser pointed at URI for newly created solar system
+			try {			
+				if (Desktop.isDesktopSupported()){		
+					Desktop.getDesktop().browse(new URI("http://www.reggiegillett.com"));				
+				}else {
+					Runtime rt = Runtime.getRuntime();
+					rt.exec("xdg-open "+new URI("http://www.reggiegillett.com"));
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (URISyntaxException e) {
 				e.printStackTrace();
 			}
 									
