@@ -10,21 +10,24 @@ public class PlanetTest {
 	private Integer testId = new Integer(13);
 	private Integer testRadius = new Integer(7);
 	private Integer testAxis = new Integer(43);
+	private String testColour = "FF0000";
 	private Integer testStarRadius = new Integer(1);
 	private Integer testTeff = new Integer(1);
+	
 
 	@Before
 	public void setup() {
-		planet = new Planet(testId, "outrageousCool", testRadius, testAxis);
+		planet = new Planet(testId, "outrageousCool", testRadius, testAxis, testColour);
 	}
 	
 	@Test
 	public void testConstructor() {
-		Planet pla = new Planet(new Integer(123), "planetName", new Integer(5), new Integer(10));
+		Planet pla = new Planet(new Integer(123), "planetName", new Integer(5), new Integer(10), "009933");
 		assertEquals(new Integer(123), pla.getSolarSystemId());
 		assertEquals(new Integer(5), pla.getPlanetRadius());
 		assertEquals(new Integer(10), pla.getSemimajorAxis());
 		assertEquals("planetName", pla.getPlanetName());
+		assertEquals("009933", pla.getColour());
 		assertEquals(testStarRadius, pla.getStarRadius());
 		assertEquals(testTeff, pla.getStarTeff());
 	}
@@ -55,6 +58,13 @@ public class PlanetTest {
 		assertEquals(testAxis, planet.getSemimajorAxis());
 		planet.setSemimajorAxis(new Integer(51));
 		assertEquals(new Integer(51), planet.getSemimajorAxis());
+	}
+	
+	@Test
+	public void testSetColour(){
+		assertEquals(testColour, planet.getColour());
+		planet.setColour("0066FF");
+		assertEquals("0066FF", planet.getColour());
 	}
 
 	@Test

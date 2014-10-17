@@ -5,17 +5,16 @@ public class Planet {
 	private Integer radius;
 	private Integer axis;
 	private String name;
+	private String colour;
 	private Integer starRadius = 1;
-	private Integer starTeff = 1;
+	private Integer starTeff = 1; 
 	
-	// TODO
-	// planet colour?
-	
-	Planet(Integer id, String planetName, Integer pRadius, Integer semimajorAxis) {
+	public Planet(Integer id, String planetName, Integer pRadius, Integer semimajorAxis, String pColour) {
 		solarSystemId = id;
 		name = planetName;
 		radius = pRadius;
 		axis = semimajorAxis;
+		colour = pColour;
 	}
 	
 	public void setSolarSystemId(Integer id) {
@@ -32,6 +31,10 @@ public class Planet {
 	
 	public void setSemimajorAxis(Integer semimajorAxis) {
 		axis = semimajorAxis;
+	}
+	
+	public void setColour(String pColour){
+		colour = pColour;
 	}
 	
 	public void setStarRadius(Integer radius) {
@@ -56,6 +59,10 @@ public class Planet {
 	
 	public Integer getSemimajorAxis() {
 		return axis;
+	}
+	
+	public String getColour(){
+		return colour;
 	}
 	
 	public Integer getStarRadius() {
