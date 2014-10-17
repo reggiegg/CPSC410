@@ -29,22 +29,27 @@ public class Initiator {
 			try {
 				
 				Runtime rt = Runtime.getRuntime();
-				Process statSVNProcess = rt.exec("java -jar statsvn.jar -xml "+logfile.getPath()+" "+modulepath.getPath());
-				statSVNProcess.waitFor();
-				System.out.println("??");
+											
+				File statSVNStats = new File("./repo-statistics.xml");				
+				if (statSVNStats.exists()){
+					statSVNStats.delete();
+				}
 				
+				Process statSVNProcess = rt.exec("java -jar statsvn.jar -xml "+logfile.getPath()+" "+modulepath.getPath());
+				statSVNProcess.waitFor();				
 				if (statSVNProcess.exitValue() != 0){
 					throw new IOException("statSVN did not properly execute.");
 				}
 				
 				statSVNProcess.destroy();
-						
-				File statSVNStats = new File("./repo-statistics.xml");
 							
 				// StatSVNParser statSVNParser = new StatSVNParser();  // something like this for the parsing stage
 				// statSVNParser.parse(statSVNStats);
 								
 				File javaNCSSStats = new File("javancss-statistics.xml");
+				if (statSVNStats.exists()){
+					statSVNStats.delete();
+				}
 				
 				Process javaNCSSProcess = rt.exec("javancss-32.53/bin/javancss -xml -all -out "+javaNCSSStats.getAbsolutePath()+" "+modulepath.getAbsolutePath());
 				javaNCSSProcess.waitFor();
