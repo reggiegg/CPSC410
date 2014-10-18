@@ -81,5 +81,40 @@ public class PlanetTest {
 		assertEquals(new Integer(19), planet.getStarTeff());
 	}
 	
+	@Test
+	public void testEqualsTrue() {
+		Planet p2 = new Planet(testId, "outrageousCool", testRadius, testAxis, testColour);
+		assertTrue(p2.equals(planet));
+	}
+
+	@Test
+	public void testEqualsWrongName() {
+		Planet p2 = new Planet(testId, "wonkyName", testRadius, testAxis, testColour);
+		assertFalse(p2.equals(planet));
+	}
+
+	@Test
+	public void testEqualsWrongSystem() {
+		Planet p2 = new Planet(new Integer(71), "outrageousCool", testRadius, testAxis, testColour);
+		assertFalse(p2.equals(planet));
+	}
+	
+	@Test
+	public void testHashCodeEquals() {
+		Planet p2 = new Planet(testId, "outrageousCool", testRadius, testAxis, testColour);
+		assertEquals(p2.hashCode(), planet.hashCode());
+	}
+	
+	@Test
+	public void testHashCodeDoesNotEqualName() {
+		Planet p2 = new Planet(testId, "wonkyName", testRadius, testAxis, testColour);
+		assertFalse(p2.hashCode() == planet.hashCode());
+	}
+
+	@Test
+	public void testHashCodeDoesNotEqualSystem() {
+		Planet p2 = new Planet(new Integer(71), "outrageousCool", testRadius, testAxis, testColour);
+		assertFalse(p2.hashCode() == planet.hashCode());
+	}
 }
 

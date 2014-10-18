@@ -73,4 +73,22 @@ public class Planet {
 		return starTeff;
 	}
 	
+	@Override
+	public boolean equals(Object otherPlanet) {
+		if (otherPlanet == null) {
+			return false;
+		} else if (otherPlanet.getClass() != this.getClass()) {
+			return false;
+		} else {
+			Planet other = (Planet) otherPlanet;
+			return (this.name.equals(other.name) && 
+					this.solarSystemId == other.solarSystemId);
+		}
+	}
+	
+	@Override
+	public int hashCode() {
+		return name.hashCode() + solarSystemId.hashCode();
+	}
+	
 }
