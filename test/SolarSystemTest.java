@@ -11,8 +11,8 @@ public class SolarSystemTest {
 	private Integer testInt = new Integer(5);
 	private String testColour = "5";
 	
-	private Planet testPlanet = new Planet(testInt, "name", testInt, testInt, "otherString");
-	private Planet testPlanet2 = new Planet(testInt, "name2", testInt, testInt, "otherString2");
+	private Planet testPlanet = new Planet(testInt, "name", testInt, testInt, testInt, "otherString");
+	private Planet testPlanet2 = new Planet(testInt, "name2", testInt, testInt, testInt, "otherString2");
 	
 	private SolarSystem testSystem;
 	private SolarSystem testSystem2;

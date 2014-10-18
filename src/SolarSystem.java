@@ -4,6 +4,7 @@ public class SolarSystem {
 
 	private Integer id;
 	private ArrayList<Planet> planets;
+	// TODO figure out how to pass base colour into Planet file for hex math
 	private String colour;
 	private Integer speed;
 	
