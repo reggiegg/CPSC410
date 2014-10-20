@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 
+/**
+ * A SolarSystem represents a code base (i.e. a whole project); 
+ * each planet inside the system represents one class in the project.
+ * @author Susannah Kirby
+ */
 public class SolarSystem {
 
 	private Integer id;
@@ -13,24 +18,13 @@ public class SolarSystem {
 	}
 	
 	// colour correlates with number of contributors, heatmap style
-	public void setColour(Integer devs) {
-		if (devs <= 3)
-			colour = "800080"; // purple
-		else if (3 < devs && devs <= 6) 
-			colour = "0000FF"; // blue
-		else if (6 < devs && devs <= 9)
-			colour = "008000"; // green
-		else if (9 < devs && devs <= 12)
-			colour = "FFFF00"; // yellow
-		else if (12 < devs && devs <= 15)
-			colour = "FFA500"; // orange
-		else if (15 < devs)
-			colour = "FF0000"; // red
+	public void setColour(String sColour) {
+		colour = sColour;
 	}
 	
 	// speed of system correlates with "churn"
-	public void setSpeed(Integer churn) {
-		speed = churn;
+	public void setSpeed(Integer sSpeed) {
+		speed = sSpeed;
 	}
 	
 	// each planet represents one class in the project

@@ -5,10 +5,10 @@ public class CodeBaseDataAggregator {
 
 	private SolarSystemBuilder builder;
 	private FakeJavaNCSSParser jParser;
-	private FakeStatSVNParser sParser;
+	private StatSVNParser sParser;
 	private SolarSystem solarSystem;
 	
-	public CodeBaseDataAggregator(FakeJavaNCSSParser jParser, FakeStatSVNParser sParser) {
+	public CodeBaseDataAggregator(FakeJavaNCSSParser jParser, StatSVNParser sParser) {
 		this.jParser = jParser;
 		this.sParser = sParser;
 		solarSystem = constructSolarSystem();

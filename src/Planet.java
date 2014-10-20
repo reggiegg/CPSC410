@@ -3,14 +3,14 @@ public class Planet {
 
 	private Integer solarSystemId;
 	private Integer radius;
-	private Integer axis;
+	private float axis;
 	private Integer period;
 	private String name;
 	private String hue;
 	private Integer starRadius = 1;
 	private Integer starTeff = 1; 
 	
-	public Planet(Integer id, String pName, Integer pRadius, Integer semimajorAxis, Integer pPeriod, String pHue) {
+	public Planet(Integer id, String pName, Integer pRadius, float semimajorAxis, Integer pPeriod, String pHue) {
 		solarSystemId = id;
 		name = pName;
 		radius = pRadius;
@@ -35,7 +35,7 @@ public class Planet {
 	}
 	
 	// correlates to number of revisions in a class (more revisions -> closer to centre)
-	public void setSemimajorAxis(Integer semimajorAxis) {
+	public void setSemimajorAxis(float semimajorAxis) {
 		axis = semimajorAxis;
 	}
 	
@@ -71,7 +71,7 @@ public class Planet {
 		return radius;
 	}
 	
-	public Integer getSemimajorAxis() {
+	public float getSemimajorAxis() {
 		return axis;
 	}
 	

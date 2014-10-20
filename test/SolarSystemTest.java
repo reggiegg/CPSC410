@@ -9,25 +9,7 @@ import org.junit.Test;
 public class SolarSystemTest {
 
 	private Integer testInt = new Integer(5);
-	private Integer testPurpleLow = new Integer(1);
-	private Integer testPurpleHigh = new Integer(3);
-	private Integer testBlueLow = new Integer(4);
-	private Integer testBlueHigh = new Integer(6);
-	private Integer testGreenLow = new Integer(7);
-	private Integer testGreenHigh = new Integer(9);
-	private Integer testYellowLow = new Integer(10);
-	private Integer testYellowHigh = new Integer(12);
-	private Integer testOrangeLow = new Integer(13);
-	private Integer testOrangeHigh = new Integer(15);
-	private Integer testRedLow = new Integer(16);
-	private Integer testRedHigh = new Integer(1000);
-	private String purple = "800080";
-	private String blue = "0000FF";
-	private String green = "008000";
-	private String yellow = "FFFF00";
-	private String orange = "FFA500";
-	private String red = "FF0000";
-	
+	private String testColour = "colour";
 	
 	private Planet testPlanet = new Planet(testInt, "name", testInt, testInt, testInt, "otherString");
 	private Planet testPlanet2 = new Planet(testInt, "name2", testInt, testInt, testInt, "otherString2");
@@ -50,56 +32,10 @@ public class SolarSystemTest {
 	}
 	
 	@Test
-	public void testSetColourPurple() {
+	public void setColour() {
 		assertNull(testSystem.getColour());
-		testSystem.setColour(testPurpleLow);
-		assertEquals(purple, testSystem.getColour());
-		testSystem.setColour(testPurpleHigh);
-		assertEquals(purple, testSystem.getColour());
-	}
-
-	@Test
-	public void testSetColourBlue() {
-		assertNull(testSystem.getColour());
-		testSystem.setColour(testBlueLow);
-		assertEquals(blue, testSystem.getColour());
-		testSystem.setColour(testBlueHigh);
-		assertEquals(blue, testSystem.getColour());
-	}
-	@Test
-	public void testSetColourGreen() {
-		assertNull(testSystem.getColour());
-		testSystem.setColour(testGreenLow);
-		assertEquals(green, testSystem.getColour());
-		testSystem.setColour(testGreenHigh);
-		assertEquals(green, testSystem.getColour());
-	}
-	
-	@Test
-	public void testSetColourYellow() {
-		assertNull(testSystem.getColour());
-		testSystem.setColour(testYellowLow);
-		assertEquals(yellow, testSystem.getColour());
-		testSystem.setColour(testYellowHigh);
-		assertEquals(yellow, testSystem.getColour());
-	}
-	
-	@Test
-	public void testSetColourOrange() {
-		assertNull(testSystem.getColour());
-		testSystem.setColour(testOrangeLow);
-		assertEquals(orange, testSystem.getColour());
-		testSystem.setColour(testOrangeHigh);
-		assertEquals(orange, testSystem.getColour());
-	}
-	
-	@Test
-	public void testSetColourRed() {
-		assertNull(testSystem.getColour());
-		testSystem.setColour(testRedLow);
-		assertEquals(red, testSystem.getColour());
-		testSystem.setColour(testRedHigh);
-		assertEquals(red, testSystem.getColour());
+		testSystem.setColour(testColour);
+		assertEquals(testColour, testSystem.getColour());
 	}
 	
 	@Test
