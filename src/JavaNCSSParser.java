@@ -27,10 +27,10 @@ import java.util.Map.Entry;
  * @author Jeremy
  */
 public class JavaNCSSParser {
-	public List<JavaNCSSClassMetric> getJavaNCSSMetrics(String xmlFileName) {
+	public List<JavaNCSSClassMetric> getJavaNCSSMetrics(File xmlFile) {
 		List<JavaNCSSClassMetric> metricsList = null;
 		try {
-			File xmlFile = new File(xmlFileName);
+//			File xmlFile = new File(xmlFileName);
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			

@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -16,8 +17,11 @@ public class Initiator {
 		
 		Scanner sc = new Scanner(System.in);
 		args = sc.nextLine().split(" +");
-		
 		sc.close();
+		
+		JavaNCSSParser javaNCSSParser;
+		StatSVNParser statSVNParser;
+		
 		
 		if (args.length != 2){
 			printUsageInstructions();
@@ -68,8 +72,13 @@ public class Initiator {
 				System.out.println("JavaNCSS success. New file at "+javaNCSSStats.getAbsolutePath());
 				javaNCSSProcess.destroy();
 				
-				// JavaNCSSParser JavaNCSSParser = new JavaNCSSParser();  // something like this for the parsing stage
-				// JavaNCSSParser.parse(JavaNCSSStats);
+				javaNCSSParser = new JavaNCSSParser();  // something like this for the parsing stage
+				
+				//TODO need to change aggregator to use javaNCSSMetrics
+//				List<JavaNCSSClassMetric> javaNCSSMetrics = javaNCSSParser.getJavaNCSSMetrics(javaNCSSStats);
+				
+				statSVNParser = new StatSVNParser(statSVNStats);
+				
 				
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -77,9 +86,14 @@ public class Initiator {
 				e.printStackTrace();
 			}
 			
-			// here's where it will call the data aggregator
 			
-			// then open default browser pointed at URI for newly created solar system
+			//TODO integrate aggregator
+//			CodeBaseDataAggregator CBDA = new CodeBaseDataAggregator(javaNCSSParser, statSVNParser);
+			
+			
+			
+			
+			
 			try {			
 				if (Desktop.isDesktopSupported()){		
 					Desktop.getDesktop().browse(new URI("http://www.reggiegillett.com"));				

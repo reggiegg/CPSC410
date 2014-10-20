@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.IOException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -18,7 +19,7 @@ public class StatSVNParser {
 	private int numRevisions;
 	private int churn;
 
-	public StatSVNParser(String path)
+	public StatSVNParser(File xmlFile)
 	{
 		this.churn = 0;
 		this.numRevisions = 0;
@@ -27,7 +28,7 @@ public class StatSVNParser {
 		DocumentBuilder docBuilder;
 		try {
 			docBuilder = docFactory.newDocumentBuilder();
-			this.xmlDoc = docBuilder.parse(path);
+			this.xmlDoc = docBuilder.parse(xmlFile);
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
