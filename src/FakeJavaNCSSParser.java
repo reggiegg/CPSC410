@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 
-
+/** 
+ * Mock class to be used for testing until parsers are complete.
+ * @author Susannah
+ *
+ */
 public class FakeJavaNCSSParser {
 
 	private Integer j;

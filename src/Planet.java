@@ -1,4 +1,10 @@
-
+/** 
+ * A Planet represents one class in a code base project, and it lives inside
+ * a SolarSystem representing that entire project.
+ * 
+ * @author Susannah
+ *
+ */
 public class Planet {
 
 	private Integer solarSystemId;

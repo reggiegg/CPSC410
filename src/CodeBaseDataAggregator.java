@@ -1,6 +1,11 @@
-import java.util.ArrayList;
-import java.util.Random;
-
+/** 
+ * This class aggregates the data from two parsers (JavaNCSSParser and StatSVNParser)
+ * and then uses it to direct the SolarSystemBuilder to build a SolarSystem from that
+ * data. I.e. the CodeBaseDataAggregator acts as the Director in the Builder pattern.
+ * 
+ * @author Susannah
+ *
+ */
 public class CodeBaseDataAggregator {
 
 	private SolarSystemBuilder builder;
@@ -23,7 +28,7 @@ public class CodeBaseDataAggregator {
 		builder.buildColour(jParser.getNumberOfDevelopers());
 		builder.buildSpeed(sParser.getChurn());
 		
-		// TODO
+		// TODO uncomment when this works in builder
 		// builder.buildPlanets();
 	
 		return builder.getResult();

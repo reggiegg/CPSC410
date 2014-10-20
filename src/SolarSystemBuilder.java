@@ -1,7 +1,12 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-
+/**
+ * This Builder constructs a SolarSystem and its Planets given data passed
+ * to it by the CodeBaseDataAggregator, which acts as a Director.
+ * 
+ * @author Susannah
+ */
 public class SolarSystemBuilder {
 
 	private SolarSystem system;

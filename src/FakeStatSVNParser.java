@@ -1,4 +1,8 @@
-
+/** 
+ * Mock class to be used for testing until parsers are complete.
+ * @author Susannah
+ *
+ */
 public class FakeStatSVNParser {
 
 	private Integer s; 
