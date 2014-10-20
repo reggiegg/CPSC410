@@ -4,7 +4,6 @@ public class SolarSystem {
 
 	private Integer id;
 	private ArrayList<Planet> planets;
-	// TODO figure out how to pass base colour into Planet file for hex math
 	private String colour;
 	private Integer speed;
 	
@@ -13,9 +12,20 @@ public class SolarSystem {
 		planets = new ArrayList<Planet>();
 	}
 	
-	// colour correlates with number of contributors
+	// colour correlates with number of contributors, heatmap style
 	public void setColour(Integer devs) {
-		colour = String.valueOf(devs.intValue());
+		if (devs <= 3)
+			colour = "800080"; // purple
+		else if (3 < devs && devs <= 6) 
+			colour = "0000FF"; // blue
+		else if (6 < devs && devs <= 9)
+			colour = "008000"; // green
+		else if (9 < devs && devs <= 12)
+			colour = "FFFF00"; // yellow
+		else if (12 < devs && devs <= 15)
+			colour = "FFA500"; // orange
+		else if (15 < devs)
+			colour = "FF0000"; // red
 	}
 	
 	// speed of system correlates with "churn"

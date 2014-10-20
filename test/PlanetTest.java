@@ -11,14 +11,14 @@ public class PlanetTest {
 	private Integer testRadius = new Integer(7);
 	private Integer testAxis = new Integer(43);
 	private Integer testPeriod = new Integer(3);
-	private String testColour = "FF0000";
+	private String testHue = "FF0000";
 	private Integer testStarRadius = new Integer(1);
 	private Integer testTeff = new Integer(1);
 	
 
 	@Before
 	public void setup() {
-		planet = new Planet(testId, "outrageousCool", testRadius, testAxis, testPeriod, testColour);
+		planet = new Planet(testId, "outrageousCool", testRadius, testAxis, testPeriod, testHue);
 	}
 	
 	@Test
@@ -29,7 +29,7 @@ public class PlanetTest {
 		assertEquals(new Integer(10), pla.getSemimajorAxis());
 		assertEquals(new Integer(15), pla.getPeriod());
 		assertEquals("planetName", pla.getPlanetName());
-		assertEquals("009933", pla.getColour());
+		assertEquals("009933", pla.getHue());
 		assertEquals(testStarRadius, pla.getStarRadius());
 		assertEquals(testTeff, pla.getStarTeff());
 	}
@@ -71,9 +71,9 @@ public class PlanetTest {
 	
 	@Test
 	public void testSetColour(){
-		assertEquals(testColour, planet.getColour());
-		planet.setColour("0066FF");
-		assertEquals("0066FF", planet.getColour());
+		assertEquals(testHue, planet.getHue());
+		planet.setHue("0066FF");
+		assertEquals("0066FF", planet.getHue());
 	}
 
 	@Test
@@ -92,37 +92,37 @@ public class PlanetTest {
 	
 	@Test
 	public void testEqualsTrue() {
-		Planet p2 = new Planet(testId, "outrageousCool", testRadius, testAxis, testPeriod, testColour);
+		Planet p2 = new Planet(testId, "outrageousCool", testRadius, testAxis, testPeriod, testHue);
 		assertTrue(p2.equals(planet));
 	}
 
 	@Test
 	public void testEqualsWrongName() {
-		Planet p2 = new Planet(testId, "wonkyName", testRadius, testAxis, testPeriod, testColour);
+		Planet p2 = new Planet(testId, "wonkyName", testRadius, testAxis, testPeriod, testHue);
 		assertFalse(p2.equals(planet));
 	}
 
 	@Test
 	public void testEqualsWrongSystem() {
-		Planet p2 = new Planet(new Integer(71), "outrageousCool", testRadius, testAxis, testPeriod, testColour);
+		Planet p2 = new Planet(new Integer(71), "outrageousCool", testRadius, testAxis, testPeriod, testHue);
 		assertFalse(p2.equals(planet));
 	}
 	
 	@Test
 	public void testHashCodeEquals() {
-		Planet p2 = new Planet(testId, "outrageousCool", testRadius, testAxis, testPeriod, testColour);
+		Planet p2 = new Planet(testId, "outrageousCool", testRadius, testAxis, testPeriod, testHue);
 		assertEquals(p2.hashCode(), planet.hashCode());
 	}
 	
 	@Test
 	public void testHashCodeDoesNotEqualName() {
-		Planet p2 = new Planet(testId, "wonkyName", testRadius, testAxis, testPeriod, testColour);
+		Planet p2 = new Planet(testId, "wonkyName", testRadius, testAxis, testPeriod, testHue);
 		assertFalse(p2.hashCode() == planet.hashCode());
 	}
 
 	@Test
 	public void testHashCodeDoesNotEqualSystem() {
-		Planet p2 = new Planet(new Integer(71), "outrageousCool", testRadius, testAxis, testPeriod, testColour);
+		Planet p2 = new Planet(new Integer(71), "outrageousCool", testRadius, testAxis, testPeriod, testHue);
 		assertFalse(p2.hashCode() == planet.hashCode());
 	}
 }
