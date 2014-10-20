@@ -6,9 +6,16 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
-
-// NOTE: This class is adapted from an answer on the following Stack Overflow page:
-// http://stackoverflow.com/questions/3666007/how-to-serialize-object-to-csv-file
+/** 
+ * This class generates a CSV representation of all the Planets in a single
+ * code base SolarSystem.
+ * 
+ * NOTE: This class is adapted from an answer on the following Stack Overflow page:
+ * http://stackoverflow.com/questions/3666007/how-to-serialize-object-to-csv-file
+ * 
+ * @author Susannah
+ *
+ */
 public class CSVResultGenerator {
 	
     private static final String CSV_SEPARATOR = ",";

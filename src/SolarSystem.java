@@ -1,10 +1,14 @@
 import java.util.ArrayList;
 
+/**
+ * A SolarSystem represents a code base (i.e. a whole project); 
+ * each planet inside the system represents one class in the project.
+ * @author Susannah Kirby
+ */
 public class SolarSystem {
 
 	private Integer id;
 	private ArrayList<Planet> planets;
-	// TODO figure out how to pass base colour into Planet file for hex math
 	private String colour;
 	private Integer speed;
 	
@@ -13,14 +17,14 @@ public class SolarSystem {
 		planets = new ArrayList<Planet>();
 	}
 	
-	// colour correlates with number of contributors
-	public void setColour(Integer devs) {
-		colour = String.valueOf(devs.intValue());
+	// colour correlates with number of contributors, heatmap style
+	public void setColour(String sColour) {
+		colour = sColour;
 	}
 	
 	// speed of system correlates with "churn"
-	public void setSpeed(Integer churn) {
-		speed = churn;
+	public void setSpeed(Integer sSpeed) {
+		speed = sSpeed;
 	}
 	
 	// each planet represents one class in the project

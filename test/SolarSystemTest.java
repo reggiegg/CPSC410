@@ -9,7 +9,7 @@ import org.junit.Test;
 public class SolarSystemTest {
 
 	private Integer testInt = new Integer(5);
-	private String testColour = "5";
+	private String testColour = "colour";
 	
 	private Planet testPlanet = new Planet(testInt, "name", testInt, testInt, testInt, "otherString");
 	private Planet testPlanet2 = new Planet(testInt, "name2", testInt, testInt, testInt, "otherString2");
@@ -32,9 +32,9 @@ public class SolarSystemTest {
 	}
 	
 	@Test
-	public void testSetColour() {
+	public void setColour() {
 		assertNull(testSystem.getColour());
-		testSystem.setColour(testInt);
+		testSystem.setColour(testColour);
 		assertEquals(testColour, testSystem.getColour());
 	}
 	

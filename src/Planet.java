@@ -1,52 +1,66 @@
-
+/** 
+ * A Planet represents one class in a code base project, and it lives inside
+ * a SolarSystem representing that entire project.
+ * 
+ * @author Susannah
+ *
+ */
 public class Planet {
 
 	private Integer solarSystemId;
 	private Integer radius;
-	private Integer axis;
+	private float axis;
 	private Integer period;
 	private String name;
-	private String colour;
+	private String hue;
 	private Integer starRadius = 1;
 	private Integer starTeff = 1; 
 	
-	public Planet(Integer id, String planetName, Integer pRadius, Integer semimajorAxis, Integer pPeriod, String pColour) {
+	public Planet(Integer id, String pName, Integer pRadius, float semimajorAxis, Integer pPeriod, String pHue) {
 		solarSystemId = id;
-		name = planetName;
+		name = pName;
 		radius = pRadius;
 		axis = semimajorAxis;
 		period = pPeriod;
-		colour = pColour;
+		hue = pHue;
 	}
 	
+	// id is the id of the solar system project it belongs to
 	public void setSolarSystemId(Integer id) {
 		solarSystemId = id;
 	}
 	
+	// planet name is name of class it represents
 	public void setPlanetName(String pName) {
 		name = pName;
 	}
 	
+	// planet radius corresponds to number of methods
 	public void setPlanetRadius(Integer pRadius) {
 		radius = pRadius;
 	}
 	
-	public void setSemimajorAxis(Integer semimajorAxis) {
+	// correlates to number of revisions in a class (more revisions -> closer to centre)
+	public void setSemimajorAxis(float semimajorAxis) {
 		axis = semimajorAxis;
 	}
 	
+	// corresponds to "churn" in project (speed set for entire project/solar system)
 	public void setPeriod(Integer pPeriod) {
 		period = pPeriod;
 	}
 	
-	public void setColour(String pColour){
-		colour = pColour;
+	// colour is based on number of developers; hue is average length of method (#sloc/#methods)
+	public void setHue(String pHue){
+		hue = pHue;
 	}
 	
+	// this is fixed for all planets and all systems
 	public void setStarRadius(Integer radius) {
 		starRadius = radius;
 	}
-	
+
+	// this is fixed for all planets and all systems
 	public void setStarTeff(Integer teff) {
 		starTeff = teff;
 	}
@@ -63,7 +77,7 @@ public class Planet {
 		return radius;
 	}
 	
-	public Integer getSemimajorAxis() {
+	public float getSemimajorAxis() {
 		return axis;
 	}
 	
@@ -71,8 +85,8 @@ public class Planet {
 		return period;
 	}
 	
-	public String getColour(){
-		return colour;
+	public String getHue(){
+		return hue;
 	}
 	
 	public Integer getStarRadius() {
