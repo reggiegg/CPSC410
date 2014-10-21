@@ -54,6 +54,7 @@ public class StatSVNParser {
 
 	private void parseChurn()
 	{
+		// TODO Churn will be the total number of revisions divided by the number of commits.
 		// TODO Determine proper metric for churn.
 		// Currently returning avg number of revisions per file. 
 		Document doc = this.xmlDoc;
@@ -74,6 +75,7 @@ public class StatSVNParser {
 
 	private void parseNumRevisions()
 	{ 
+		// TODO Return number of revisions per file. Store in an array with index of file name. 
 		Document doc = this.xmlDoc;
 		NodeList nodeList = doc.getDocumentElement().getChildNodes();
 		for (int i = 0; i < nodeList.getLength(); i++) {

@@ -67,18 +67,21 @@ public class SolarSystemBuilder {
 		return speed;
 	}
 
-	public void buildPlanets(ArrayList<FakeProjectClass> classList) {
+	public void buildPlanets(JavaNCSSParser jparser, StatSVNParser sparser) {
+		
+		
+		
 		// TODO how to construct and add planets one by one?
-		for (FakeProjectClass fpc : classList) { 
-			Planet p = new Planet(
-					system.getId(), 
-					fpc.getName(), 
-					buildPlanetRadius(fpc.getNumMethods()),
-					buildPlanetAxis(fpc.getNumRevisions()),
-					buildPlanetPeriod(system.getSpeed()),
-					buildPlanetHue(fpc.getSloc() / fpc.getNumMethods()));  
-			planets.add(p);
-		}
+//		for () { 
+//			Planet p = new Planet(
+//					system.getId(), 
+//					fpc.getName(), 
+//					buildPlanetRadius(fpc.getNumMethods()),
+//					buildPlanetAxis(fpc.getNumRevisions()),
+//					buildPlanetPeriod(system.getSpeed()),
+//					buildPlanetHue(fpc.getSloc() / fpc.getNumMethods()));  
+//			planets.add(p);
+//		}
 
 		// TODO 
 		// size of each planet - JavaNCSS number of methods
@@ -93,9 +96,9 @@ public class SolarSystemBuilder {
 	}
 
 
-	protected String buildPlanetHue(Integer avgMethodLength) {
+	protected String buildPlanetHue(Integer complexity) {
 		// TODO planet hue from 
-		// JavaNCSSClassMetric.getAverageMethodLength() => float
+		// JavaNCSSClassMetric.getComplexity() => float
 		return null;
 	}
 

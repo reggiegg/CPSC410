@@ -1,11 +1,13 @@
 import static org.junit.Assert.*;
 
+import java.io.File;
+
 import org.junit.Before;
 import org.junit.Test;
 
 
 public class StatSVNParserTest {
-	private String path = "src/repo-statistics.xml";
+	private File path = new File("src/repo-statistics.xml");
 	private StatSVNParser parser;
 	private int TEST_CHURN = 19;
 	private int TEST_REVISIONS = 1627259;

@@ -25,11 +25,12 @@ public class CodeBaseDataAggregator {
 	
 	private SolarSystem constructSolarSystem(){
 		builder = new SolarSystemBuilder();
-		builder.buildColour(jParser.getNumberOfDevelopers());
+		// TODO
+		//builder.buildColour(jParser.getNumberOfDevelopers());
 		builder.buildSpeed(sParser.getChurn());
 		
-		// TODO uncomment when this works in builder
-		// builder.buildPlanets();
+		// TODO 
+		// builder.buildPlanets(jParser, sParser);
 	
 		return builder.getResult();
 	}

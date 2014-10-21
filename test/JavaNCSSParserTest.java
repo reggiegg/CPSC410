@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.List;
 
 import org.junit.Assert.*;
@@ -14,7 +15,7 @@ public class JavaNCSSParserTest {
 	public void sampleTest() {
 		JavaNCSSParser javaNCSSParser = new JavaNCSSParser();
 		List<JavaNCSSClassMetric> javaNCSSMetricsList = 
-				javaNCSSParser.getJavaNCSSMetrics("test/javaNCSSTest.xml");
+				javaNCSSParser.getJavaNCSSMetrics(new File("test/javaNCSSTest.xml"));
 		
 		for (JavaNCSSClassMetric classMetric : javaNCSSMetricsList) {
 			System.out.println("Classname: " + classMetric.getClassName());
