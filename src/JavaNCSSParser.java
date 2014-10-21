@@ -27,18 +27,8 @@ import java.util.Map.Entry;
  * @author Jeremy
  */
 public class JavaNCSSParser {
-	
-	
-	List<JavaNCSSClassMetric> resultList;
-	
-	
-	public JavaNCSSParser(File xmlFile){
-		
-		this.resultList = getJavaNCSSMetrics(xmlFile);
-		
-	}
-	
-	public List<JavaNCSSClassMetric> getJavaNCSSMetrics(File xmlFile) {
+			
+	public JavaNCSSMetrics setJavaNCSSMetrics(File xmlFile) {
 		List<JavaNCSSClassMetric> metricsList = null;
 		try {
 //			File xmlFile = new File(xmlFileName);
@@ -103,7 +93,7 @@ public class JavaNCSSParser {
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		}
-		return metricsList;
+		return new JavaNCSSMetrics(metricsList);
 	}
 	
 	/**
