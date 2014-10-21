@@ -1,0 +1,4 @@
+period,planet_radius,semimajor_axis,stellar_radius,stellar_teff,id,planet_name
+3,30,0.5,0.68099999999999994,4188.0,1,c
+7,19,0.8,0.52400000000000002,4061.0,1,f
+18,57,0.1,1.0,5627.0,1,b

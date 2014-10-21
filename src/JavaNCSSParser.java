@@ -27,6 +27,17 @@ import java.util.Map.Entry;
  * @author Jeremy
  */
 public class JavaNCSSParser {
+	
+	
+	List<JavaNCSSClassMetric> resultList;
+	
+	
+	public JavaNCSSParser(File xmlFile){
+		
+		this.resultList = getJavaNCSSMetrics(xmlFile);
+		
+	}
+	
 	public List<JavaNCSSClassMetric> getJavaNCSSMetrics(File xmlFile) {
 		List<JavaNCSSClassMetric> metricsList = null;
 		try {

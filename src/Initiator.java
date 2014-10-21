@@ -53,14 +53,11 @@ public class Initiator {
 				statSVNProcess.destroy();
 				System.out.println("StatSVN success. New file at "+statSVNStats.getAbsolutePath());
 							
-				// StatSVNParser statSVNParser = new StatSVNParser();  // something like this for the parsing stage
-				// statSVNParser.parse(statSVNStats);
 								
 				File javaNCSSStats = new File("javancss-statistics.xml");
 				if (javaNCSSStats.exists()){
 					javaNCSSStats.delete();
-				}
-				
+				}				
 				System.out.println("Executing JavaNCSS...");
 				Process javaNCSSProcess = rt.exec("javancss-32.53/bin/javancss -recursive -xml -all -out "+javaNCSSStats.getAbsolutePath()+" "+modulepath.getAbsolutePath());
 				javaNCSSProcess.waitFor();
@@ -72,28 +69,19 @@ public class Initiator {
 				System.out.println("JavaNCSS success. New file at "+javaNCSSStats.getAbsolutePath());
 				javaNCSSProcess.destroy();
 				
-				javaNCSSParser = new JavaNCSSParser();  // something like this for the parsing stage
-				
-				//TODO need to change aggregator to use javaNCSSMetrics
-//				List<JavaNCSSClassMetric> javaNCSSMetrics = javaNCSSParser.getJavaNCSSMetrics(javaNCSSStats);
+				javaNCSSParser = new JavaNCSSParser(javaNCSSStats);  // something like this for the parsing stage
 				
 				statSVNParser = new StatSVNParser(statSVNStats);
 				
+				CodeBaseDataAggregator CBDA = new CodeBaseDataAggregator(javaNCSSParser, statSVNParser);
 				
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
-			
-			//TODO integrate aggregator
-//			CodeBaseDataAggregator CBDA = new CodeBaseDataAggregator(javaNCSSParser, statSVNParser);
-			
-			
-			
-			
-			
+									
+						
 			try {			
 				if (Desktop.isDesktopSupported()){		
 					Desktop.getDesktop().browse(new URI("http://www.reggiegillett.com"));				

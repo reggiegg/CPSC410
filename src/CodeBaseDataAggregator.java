@@ -9,11 +9,11 @@
 public class CodeBaseDataAggregator {
 
 	private SolarSystemBuilder builder;
-	private FakeJavaNCSSParser jParser;
+	private JavaNCSSParser jParser;
 	private StatSVNParser sParser;
 	private SolarSystem solarSystem;
 	
-	public CodeBaseDataAggregator(FakeJavaNCSSParser jParser, StatSVNParser sParser) {
+	public CodeBaseDataAggregator(JavaNCSSParser jParser, StatSVNParser sParser) {
 		this.jParser = jParser;
 		this.sParser = sParser;
 		solarSystem = constructSolarSystem();
