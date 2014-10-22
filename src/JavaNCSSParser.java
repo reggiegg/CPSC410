@@ -69,16 +69,17 @@ public class JavaNCSSParser {
 				
 				// parse the class name from the full method name, discard the rest
 				methodName = methodName.substring(0, methodName.indexOf("("));
-				String className = methodName.substring(0, methodName.lastIndexOf("."));
+				String qualifiedClassName = methodName.substring(0, methodName.lastIndexOf("."));
+				String className = qualifiedClassName.substring(qualifiedClassName.lastIndexOf(".") + 1, qualifiedClassName.length());
 				
 				// find the class info object if it already exists in the map
-				ClassInfo existingClassInfo = classesMap.get(className);
+				ClassInfo existingClassInfo = classesMap.get(qualifiedClassName);
 				
 				// if the class does not yet exist in the map then create a new map entry, otherwise add the new method info
 				if (existingClassInfo == null) {
-					ClassInfo newClass = new ClassInfo();
+					ClassInfo newClass = new ClassInfo(className);
 					newClass.addMethod(methodNCSS);
-					classesMap.put(className, newClass);
+					classesMap.put(qualifiedClassName, newClass);
 				} else {
 					existingClassInfo.addMethod(methodNCSS);
 				}
@@ -106,12 +107,13 @@ public class JavaNCSSParser {
 		
 		while (classInfoIter.hasNext()) {
 			Map.Entry classInfoEntry = (Map.Entry) classInfoIter.next();
-			String className = classInfoEntry.getKey().toString();
+			String qualifiedClassName = classInfoEntry.getKey().toString();
 			ClassInfo classInfo = (ClassInfo)classInfoEntry.getValue();
+			String className = classInfo.getClassName();
 			int numMethods = classInfo.getNumMethods();
 			float averageMethodLength = classInfo.getAverageMethodLength();
 			
-			JavaNCSSClassMetric classMetric = new JavaNCSSClassMetric(className, numMethods, averageMethodLength);
+			JavaNCSSClassMetric classMetric = new JavaNCSSClassMetric(qualifiedClassName, className, numMethods, averageMethodLength);
 			classesList.add(classMetric);
 		}
 		
@@ -124,13 +126,16 @@ public class JavaNCSSParser {
 	 * Contains class metrics for:
 	 * - Number of methods in a class
 	 * - Average length of methods in a class
+	 * - unqualified class name
 	 * @author Jeremy
 	 */
 	private class ClassInfo {
+		private String className;
 		private int numMethods;
 		private int methodLengthSum;
 		
-		public ClassInfo () {
+		public ClassInfo (String className) {
+			this.className = className;
 			numMethods = 0;
 			methodLengthSum = 0;
 		}
@@ -138,6 +143,10 @@ public class JavaNCSSParser {
 		public void addMethod(int methodLengthSum) {
 			numMethods++;
 			this.methodLengthSum += methodLengthSum;
+		}
+		
+		public String getClassName() {
+			return className;
 		}
 		
 		public float getAverageMethodLength() {
