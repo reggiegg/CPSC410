@@ -64,6 +64,16 @@ public class JavaNCSSParser {
 					break;
 				}
 				
+				// get the "Code Complexity Number / McCabe Metric" of the method
+				String methodCCNText = methodElement.getElementsByTagName("ccn").item(0).getTextContent();
+				int methodCCN = 0;
+				try {
+					methodCCN = Integer.valueOf(methodCCNText);
+				} catch (NumberFormatException e) {
+					e.printStackTrace();
+					break;
+				}
+				
 				// get the full method name
 				String methodName = methodElement.getElementsByTagName("name").item(0).getTextContent();
 				
@@ -75,13 +85,14 @@ public class JavaNCSSParser {
 				// find the class info object if it already exists in the map
 				ClassInfo existingClassInfo = classesMap.get(qualifiedClassName);
 				
-				// if the class does not yet exist in the map then create a new map entry, otherwise add the new method info
+				// if the class does not yet exist in the map then create a 
+				// new map entry, otherwise add the new method info
 				if (existingClassInfo == null) {
 					ClassInfo newClass = new ClassInfo(className);
-					newClass.addMethod(methodNCSS);
+					newClass.addMethod(methodNCSS, methodCCN);
 					classesMap.put(qualifiedClassName, newClass);
 				} else {
-					existingClassInfo.addMethod(methodNCSS);
+					existingClassInfo.addMethod(methodNCSS, methodCCN);
 				}
 			}
 			// create a new class metrics list from the hash map
@@ -112,8 +123,13 @@ public class JavaNCSSParser {
 			String className = classInfo.getClassName();
 			int numMethods = classInfo.getNumMethods();
 			float averageMethodLength = classInfo.getAverageMethodLength();
+			int complexityNumber = classInfo.getComplexity();
+			float complexityDensity = classInfo.getComplexityDensity();
 			
-			JavaNCSSClassMetric classMetric = new JavaNCSSClassMetric(qualifiedClassName, className, numMethods, averageMethodLength);
+			JavaNCSSClassMetric classMetric = 
+					new JavaNCSSClassMetric(qualifiedClassName, className, 
+							numMethods, averageMethodLength, complexityNumber, 
+							complexityDensity);
 			classesList.add(classMetric);
 		}
 		
@@ -133,16 +149,19 @@ public class JavaNCSSParser {
 		private String className;
 		private int numMethods;
 		private int methodLengthSum;
+		private int complexitySum;
 		
 		public ClassInfo (String className) {
 			this.className = className;
 			numMethods = 0;
 			methodLengthSum = 0;
+			complexitySum = 0;
 		}
 		
-		public void addMethod(int methodLengthSum) {
+		public void addMethod(int methodLength, int methodComplexity) {
 			numMethods++;
-			this.methodLengthSum += methodLengthSum;
+			this.methodLengthSum += methodLength;
+			this.complexitySum += methodComplexity;
 		}
 		
 		public String getClassName() {
@@ -155,6 +174,14 @@ public class JavaNCSSParser {
 		
 		public int getNumMethods() {
 			return numMethods;
+		}
+		
+		public int getComplexity() {
+			return complexitySum;
+		}
+		
+		public float getComplexityDensity() {
+			return ((float)complexitySum / methodLengthSum);
 		}
 	}
 }

@@ -19,9 +19,11 @@ public class JavaNCSSParserTest {
 		
 		for (JavaNCSSClassMetric classMetric : javaNCSSMetricsList) {
 			System.out.println("Classname: " + classMetric.getClassName());
-			System.out.println("Qualified class name: " + classMetric.getQualifiedClassName());
+			System.out.println("Fully qualified class name: " + classMetric.getQualifiedClassName());
 			System.out.println("Number of methods: " + classMetric.getNumMethods());
 			System.out.println("Average method length: " + classMetric.getAverageMethodLength());
+			System.out.println("Code Complexity Number: " + classMetric.getComplexityNumber());
+			System.out.println("Complexity Density (CCN / Total NCSS): " + classMetric.getComplexityDensity());
 			System.out.println();
 		}
 	}
