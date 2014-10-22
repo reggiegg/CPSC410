@@ -14,8 +14,8 @@ public class JavaNCSSParserTest {
 	@Test
 	public void sampleTest() {
 		JavaNCSSParser javaNCSSParser = new JavaNCSSParser();
-		List<JavaNCSSClassMetric> javaNCSSMetricsList = 
-				javaNCSSParser.getJavaNCSSMetrics(new File("test/javaNCSSTest.xml"));
+		JavaNCSSMetrics javaNCSSMetrics = javaNCSSParser.getJavaNCSSMetrics(new File("test/javaNCSSTest.xml"));
+		List<JavaNCSSClassMetric> javaNCSSMetricsList = javaNCSSMetrics.getClassMetricsList();
 		
 		for (JavaNCSSClassMetric classMetric : javaNCSSMetricsList) {
 			System.out.println("Classname: " + classMetric.getClassName());

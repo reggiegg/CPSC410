@@ -19,10 +19,7 @@ public class Initiator {
 		args = sc.nextLine().split(" +");
 		sc.close();
 		
-		JavaNCSSParser javaNCSSParser;
-		StatSVNParser statSVNParser;
-		
-		
+
 		if (args.length != 2){
 			printUsageInstructions();
 		}else{
@@ -69,11 +66,21 @@ public class Initiator {
 				System.out.println("JavaNCSS success. New file at "+javaNCSSStats.getAbsolutePath());
 				javaNCSSProcess.destroy();
 				
-				javaNCSSParser = new JavaNCSSParser(javaNCSSStats);  // something like this for the parsing stage
+				JavaNCSSParser javaNCSSParser = new JavaNCSSParser();
+				JavaNCSSMetrics javaNCSSMetrics = javaNCSSParser.getJavaNCSSMetrics(javaNCSSStats);
 				
-				statSVNParser = new StatSVNParser(statSVNStats);
+				StatSVNParser statSVNParser = new StatSVNParser(statSVNStats);
+				// StatSVNMetrics statSVNMetrics = statSVNParser.getStatSVNMetrics()
 				
-				CodeBaseDataAggregator CBDA = new CodeBaseDataAggregator(javaNCSSParser, statSVNParser);
+				// TODO:
+				// We want to pass in the metrics from the NCSSParser and the statSVNParser (not the parsers)
+				// Pass in the metrics
+				// CodeBaseDataAggregator CBDA = new CodeBaseDataAggregator(javaNCSSMetrics, statSVNMetrics);
+				
+				// TODO:
+				// then generate the output csv using the metrics
+				// CBDA.generateCSVFromMetrics()
+				
 				
 			} catch (IOException e) {
 				e.printStackTrace();
