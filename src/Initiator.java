@@ -6,6 +6,14 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Initiator acts as a main class. It takes the location of Subversion log file and Subversion local repo as arguments.
+ * - Begins analysis of code base by triggering the analysis tools to provide XML reports on the project
+ * - It causes the parsers to parse those reports
+ * - It receives parsed results and ships them to the Code Base Data Aggregator
+ * - It opens the Result in a browser screen
+ * @author Reggie
+ */
 
 public class Initiator {
 	
@@ -15,6 +23,7 @@ public class Initiator {
 
 	public static void main(String[] args) {
 		
+		// temporary interface for defining arguments
 		Scanner sc = new Scanner(System.in);
 		args = sc.nextLine().split(" +");
 		sc.close();
@@ -24,12 +33,11 @@ public class Initiator {
 			printUsageInstructions();
 		}else{
 			
-			String paths = "/home/reggie/Documents/CPSC410/spamassassin/trunk/logfile.log /home/reggie/Documents/CPSC410/spamassassin/trunk/";
+			//String paths = "/home/reggie/Documents/CPSC410/spamassassin/trunk/logfile.log /home/reggie/Documents/CPSC410/spamassassin/trunk/";
 
 			File logfile =  new File(args[0]);
 			File modulepath = new File(args[1]);
-					
-			
+								
 			try {
 				
 				Runtime rt = Runtime.getRuntime();
@@ -90,15 +98,14 @@ public class Initiator {
 									
 						
 			try {			
-				if (Desktop.isDesktopSupported()){		
-					Desktop.getDesktop().browse(new URI("http://www.reggiegillett.com"));				
+				if (Desktop.isDesktopSupported()){
+					System.out.println((new File("../site/index.html")).getAbsolutePath());
+					Desktop.getDesktop().browse((new File("site/index.html")).toURI());				
 				}else {
 					Runtime rt = Runtime.getRuntime();
-					rt.exec("xdg-open "+new URI("http://www.reggiegillett.com"));
+					rt.exec("xdg-open "+((new File("site/index.html")).toURI()));
 				}
 			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (URISyntaxException e) {
 				e.printStackTrace();
 			}
 									
