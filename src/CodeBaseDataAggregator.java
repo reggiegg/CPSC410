@@ -9,13 +9,13 @@
 public class CodeBaseDataAggregator {
 
 	private SolarSystemBuilder builder;
-	private JavaNCSSParser jParser;
-	private StatSVNParser sParser;
+	private JavaNCSSMetrics jMetrics;
+	private StatSVNMetrics sMetrics;
 	private SolarSystem solarSystem;
 	
-	public CodeBaseDataAggregator(JavaNCSSParser jParser, StatSVNParser sParser) {
-		this.jParser = jParser;
-		this.sParser = sParser;
+	public CodeBaseDataAggregator(JavaNCSSMetrics jMetrics, StatSVNMetrics sMetrics) {
+		this.jMetrics = jMetrics;
+		this.sMetrics = sMetrics;
 		solarSystem = constructSolarSystem();
 	}
 	
@@ -27,7 +27,7 @@ public class CodeBaseDataAggregator {
 		builder = new SolarSystemBuilder();
 		// TODO
 		//builder.buildColour(jParser.getNumberOfDevelopers());
-		builder.buildSpeed(sParser.getChurn());
+		//builder.buildSpeed(sMetrics.getChurn());
 		
 		// TODO 
 		// builder.buildPlanets(jParser, sParser);
