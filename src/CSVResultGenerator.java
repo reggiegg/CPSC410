@@ -35,7 +35,7 @@ public class CSVResultGenerator {
             
             for (Planet planet : planetList) {
                 oneLine = new StringBuffer();
-                // period, planet_radius, semimajor_axis, stellar_radius, stellar_teff, id, planet_name    
+                // period, planet_radius, semimajor_axis, stellar_radius, stellar_teff, id, planet_name, hue    
                 oneLine.append(planet.getPeriod());
                 oneLine.append(CSV_SEPARATOR);
                 oneLine.append(planet.getPlanetRadius());
@@ -49,6 +49,8 @@ public class CSVResultGenerator {
                 oneLine.append(planet.getSolarSystemId());
                 oneLine.append(CSV_SEPARATOR);
                 oneLine.append(planet.getPlanetName());
+                oneLine.append(CSV_SEPARATOR);
+                oneLine.append(planet.getHue());
                 oneLine.append(CSV_SEPARATOR);
                 writeNewLine(bw, oneLine);
             }
