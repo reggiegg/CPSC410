@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /** 
  * This class aggregates the data from two parsers (JavaNCSSParser and StatSVNParser)
  * and then uses it to direct the SolarSystemBuilder to build a SolarSystem from that
@@ -25,13 +27,14 @@ public class CodeBaseDataAggregator {
 	
 	private SolarSystem constructSolarSystem(){
 		builder = new SolarSystemBuilder();
-		// TODO
-		//builder.buildColour(jParser.getNumberOfDevelopers());
+		
+		// TODO swap these for real calls, once methods are in place
+		builder.buildColour(new Integer(10));
+		//builder.buildColour(sMetrics.getNumberOfDevelopers()); 
+		builder.buildSpeed(new Integer(5));
 		//builder.buildSpeed(sMetrics.getChurn());
 		
-		// TODO 
-		// builder.buildPlanets(jParser, sParser);
-	
+		builder.buildPlanets(jMetrics, sMetrics);
 		return builder.getResult();
 	}
 

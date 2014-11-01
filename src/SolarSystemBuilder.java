@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -67,39 +68,43 @@ public class SolarSystemBuilder {
 		return speed;
 	}
 
-	public void buildPlanets(JavaNCSSParser jparser, StatSVNParser sparser) {
-		
-		
-		
-		// TODO how to construct and add planets one by one?
-//		for () { 
-//			Planet p = new Planet(
-//					system.getId(), 
-//					fpc.getName(), 
-//					buildPlanetRadius(fpc.getNumMethods()),
-//					buildPlanetAxis(fpc.getNumRevisions()),
-//					buildPlanetPeriod(system.getSpeed()),
-//					buildPlanetHue(fpc.getSloc() / fpc.getNumMethods()));  
-//			planets.add(p);
-//		}
+	protected void buildPlanets(JavaNCSSMetrics jMetrics, StatSVNMetrics sMetrics) {
+		ArrayList<Planet> planets = new ArrayList<Planet>();
+		Integer id = system.getId();
 
-		// TODO 
-		// size of each planet - JavaNCSS number of methods
-		// Integer numMethods = jParser.getNumberOfMethods();
-		// Integer sLoc = jParser.getSloc();
-		
-		// semimajor axis - StatSVN number of revisions 
-		// Integer numRevisions = sParser.getNumberOfRevisions();
+		for (JavaNCSSClassMetric jcm : jMetrics.getClassMetricsList()) {
+			
+			Integer period = buildPlanetPeriod(system.getSpeed());
 
-		
+			// JavaNCSS info
+			String name = jcm.getClassName();
+			Integer radius = buildPlanetRadius(new Integer(jcm.getNumMethods()));
+			String hue = buildPlanetHue(new Integer(jcm.getComplexityNumber()));
+			
+			// StatSVN info
+//			Integer numRevisions = new Integer(0);
+//			
+			// TODO need to loop through class metrics to find matching class for numRevisions
+//			for (StatSVNClassMetric scm : sMetrics.getClassMetricsList()) {
+//				if (scm.getClassName().equals(name)) {
+//					numRevisions = scm.getNumRevisions();
+//					break;
+//				}
+//			}
+//			Integer axis = buildPlanetAxis(numRevisions);
+			// TODO remove when above works
+			Integer axis = new Integer(0);
+			
+			Planet p = new Planet(id, name, radius, axis, period, hue);  
+			planets.add(p);
+		}
+
 		system.setPlanets(planets);
 	}
 
-
 	protected String buildPlanetHue(Integer complexity) {
-		// TODO planet hue from 
-		// JavaNCSSClassMetric.getComplexity() => float
-		return null;
+		// TODO construct planet hue from complexity number
+		return "FFFFFF";
 	}
 
 	protected Integer buildPlanetPeriod(Integer speed) {
