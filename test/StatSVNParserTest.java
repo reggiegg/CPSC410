@@ -9,27 +9,27 @@ import org.junit.Test;
 public class StatSVNParserTest {
 	private File path = new File("src/repo-statistics.xml");
 	private StatSVNParser parser;
+	private StatSVNMetrics ssvnm;
 	private int TEST_CHURN = 19;
-	private int TEST_REVISIONS = 1627259;
+	private int TEST_DEVELOPERS = 9;
 	
 	@Before
 	public void setup() 
 	{
-		parser = new StatSVNParser(path);
+		this.parser = new StatSVNParser();
+		this.ssvnm = parser.getStatSVNMetrics(path);
 	}
 	
 	@Test
 	public void testConstructor() 
 	{
-		StatSVNParser ssvnp;
-		ssvnp = new StatSVNParser(path);
-		assertNotNull(ssvnp.getDocument());
+		assertNotNull(parser.getDocument());
 	}
 	
 	@Test
 	public void testParseChurn() 
 	{
-		int churn = parser.getChurn();
+		int churn = ssvnm.getChurn();
 		assertEquals(churn, TEST_CHURN);
 	}
 
@@ -37,9 +37,14 @@ public class StatSVNParserTest {
 	@Test
 	public void testParseNumRevisions() 
 	{
-		int numRevisions = parser.getNumberOfRevisions();
-		System.out.println(numRevisions);
-		assertEquals(TEST_REVISIONS, numRevisions);
+		int numDevelopers = ssvnm.getnumDevelopers();
+		assertEquals(TEST_DEVELOPERS, numDevelopers);
+	}
+	
+	@Test
+	public void testParseRevisionsPerFile()
+	{
+		//TODO: Fill this in.
 	}
 	
 }

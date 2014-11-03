@@ -77,8 +77,8 @@ public class Initiator {
 				JavaNCSSParser javaNCSSParser = new JavaNCSSParser();
 				JavaNCSSMetrics javaNCSSMetrics = javaNCSSParser.getJavaNCSSMetrics(javaNCSSStats);
 				
-				StatSVNParser statSVNParser = new StatSVNParser(statSVNStats);
-				// StatSVNMetrics statSVNMetrics = statSVNParser.getStatSVNMetrics()
+				StatSVNParser statSVNParser = new StatSVNParser();
+				StatSVNMetrics statSVNMetrics = statSVNParser.getStatSVNMetrics(statSVNStats);
 				
 				// TODO:
 				// We want to pass in the metrics from the NCSSParser and the statSVNParser (not the parsers)
