@@ -72,26 +72,26 @@ public class SolarSystemBuilder {
 		Integer id = system.getId();
 
 		for (JavaNCSSClassMetric jcm : jMetrics.getClassMetricsList()) {
-			
+
 			Integer period = determinePlanetPeriod(system.getSpeed());
 
 			// JavaNCSS info
 			String name = jcm.getClassName();
 			Integer radius = determinePlanetRadius(new Integer(jcm.getNumMethods()));
 			String hue = determinePlanetHue(new Integer(jcm.getComplexityNumber()));
-			
+
 			// StatSVN info
 			Integer numRevisions = new Integer(0);
-			
+
 			for (StatSVNClassMetric scm : sMetrics.getClassMetricsList()) {
 				if (scm.getClassName().equals(name)) {
 					numRevisions = scm.getNumRevisions();
 					break;
 				}
 			}
-			
+
 			Float axis = determinePlanetAxis(numRevisions);
-			
+
 			Planet p = new Planet(id, name, radius, axis, period, hue);  
 			planets.add(p);
 		}
@@ -99,10 +99,28 @@ public class SolarSystemBuilder {
 		system.setPlanets(planets);
 	}
 
-
 	protected String determinePlanetHue(Integer complexity) {
-		// TODO 
-		return "FFFFFF";
+		String baseColour = system.getColour();
+		Integer baseHex = Integer.parseInt(baseColour, 16);
+		Integer multiplier = getMultiplier(baseColour);
+		Integer addOn = complexity * multiplier;
+		Integer newColour = baseHex + addOn;
+		return String.valueOf(newColour);
+	}
+
+	private Integer getMultiplier(String colour) {
+		if (colour == SolarSystemConstants.RED)
+			return SolarSystemConstants.MULT_RED;
+		else if (colour == SolarSystemConstants.ORANGE)
+			return SolarSystemConstants.MULT_ORANGE;
+		else if (colour == SolarSystemConstants.YELLOW)
+			return SolarSystemConstants.MULT_YELLOW;
+		else if (colour == SolarSystemConstants.GREEN)
+			return SolarSystemConstants.MULT_GREEN;
+		else if (colour == SolarSystemConstants.BLUE)
+			return SolarSystemConstants.MULT_BLUE;
+		else
+			return SolarSystemConstants.MULT_PURPLE;
 	}
 
 	protected Integer determinePlanetPeriod(Integer speed) {
