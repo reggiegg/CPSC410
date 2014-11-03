@@ -80,26 +80,20 @@ public class Initiator {
 				StatSVNParser statSVNParser = new StatSVNParser();
 				StatSVNMetrics statSVNMetrics = statSVNParser.getStatSVNMetrics(statSVNStats);
 				
-				// TODO:
-				// We want to pass in the metrics from the NCSSParser and the statSVNParser (not the parsers)
-				// Pass in the metrics
-				// CodeBaseDataAggregator CBDA = new CodeBaseDataAggregator(javaNCSSMetrics, statSVNMetrics);
+				CodeBaseDataAggregator CBDA = new CodeBaseDataAggregator(javaNCSSMetrics, statSVNMetrics);
 				
-				// TODO:
-				// then generate the output csv using the metrics
-				// CBDA.generateCSVFromMetrics()
-				
-				
+				CSVResultGenerator.writeToCSV(CBDA.getSolarSystem());
+								
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 									
-						
 			try {			
 				if (Desktop.isDesktopSupported()){
 					System.out.println((new File("../site/index.html")).getAbsolutePath());
+					
 					Desktop.getDesktop().browse((new File("site/index.html")).toURI());				
 				}else {
 					Runtime rt = Runtime.getRuntime();
