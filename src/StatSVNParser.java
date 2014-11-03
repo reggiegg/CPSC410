@@ -103,7 +103,6 @@ public class StatSVNParser {
 					// Iterate through each commit
 					for (int j = 0; j < allCommits.getLength(); j++) {
 						Node commitNode = allCommits.item(j);
-						System.out.println(commitNode.getNodeName());
 
 						// Extract list of changed files for that commit
 						Node changedFiles = commitNode.getLastChild();
