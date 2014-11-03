@@ -24,7 +24,7 @@ public class StatSVNMetrics {
 		return this.churn;
 	}
 	
-	public int getnumDevelopers() {
+	public int getNumDevelopers() {
 		return this.numDevelopers;
 	}
 }

@@ -29,18 +29,18 @@ public class SolarSystemBuilder {
 
 	private String determineColour(Integer devs) {
 		String colour = "";
-		if (devs <= 3)
-			colour = "800080"; // purple
-		else if (3 < devs && devs <= 6) 
-			colour = "0000FF"; // blue
-		else if (6 < devs && devs <= 9)
-			colour = "008000"; // green
-		else if (9 < devs && devs <= 12)
-			colour = "FFFF00"; // yellow
-		else if (12 < devs && devs <= 15)
-			colour = "FFA500"; // orange
-		else // (15 < devs)
-			colour = "FF0000"; // red
+		if (devs <= SolarSystemConstants.DEVS_1)
+			colour = SolarSystemConstants.PURPLE;
+		else if (SolarSystemConstants.DEVS_1 < devs && devs <= SolarSystemConstants.DEVS_2) 
+			colour = SolarSystemConstants.BLUE;
+		else if (SolarSystemConstants.DEVS_2 < devs && devs <= SolarSystemConstants.DEVS_3)
+			colour = SolarSystemConstants.GREEN;
+		else if (SolarSystemConstants.DEVS_3 < devs && devs <= SolarSystemConstants.DEVS_4)
+			colour = SolarSystemConstants.YELLOW;
+		else if (SolarSystemConstants.DEVS_4 < devs && devs <= SolarSystemConstants.DEVS_5)
+			colour = SolarSystemConstants.ORANGE;
+		else  
+			colour = SolarSystemConstants.RED;
 		return colour;
 	}
 
@@ -52,47 +52,45 @@ public class SolarSystemBuilder {
 
 	private Integer determineSpeed(Integer churn) {
 		Integer speed;
-		if (churn <= 1000)
-			speed = new Integer(3); 
-		else if (1000 < churn && churn <= 2000) 
-			speed = new Integer(6);
-		else if (2000 < churn && churn <= 3000)
-			speed = new Integer(9);
-		else if (3000 < churn && churn <= 4000)
-			speed = new Integer(12);
-		else if (4000 < churn && churn <= 5000)
-			speed = new Integer(15);
+		if (churn <= SolarSystemConstants.CHURN_1)
+			speed = SolarSystemConstants.SPEED_1; 
+		else if (SolarSystemConstants.CHURN_1 < churn && churn <= SolarSystemConstants.CHURN_2) 
+			speed = SolarSystemConstants.SPEED_2; 
+		else if (SolarSystemConstants.CHURN_2 < churn && churn <= SolarSystemConstants.CHURN_3)
+			speed = SolarSystemConstants.SPEED_3; 
+		else if (SolarSystemConstants.CHURN_3 < churn && churn <= SolarSystemConstants.CHURN_4)
+			speed = SolarSystemConstants.SPEED_4; 
+		else if (SolarSystemConstants.CHURN_4 < churn && churn <= SolarSystemConstants.CHURN_5)
+			speed = SolarSystemConstants.SPEED_5; 
 		else 
-			speed = new Integer(18);
+			speed = SolarSystemConstants.SPEED_6; 
 		return speed;
 	}
 
-	protected void buildPlanets(JavaNCSSMetrics jMetrics, StatSVNMetrics sMetrics) {
+	public void buildPlanets(JavaNCSSMetrics jMetrics, StatSVNMetrics sMetrics) {
 		ArrayList<Planet> planets = new ArrayList<Planet>();
 		Integer id = system.getId();
 
 		for (JavaNCSSClassMetric jcm : jMetrics.getClassMetricsList()) {
 			
-			Integer period = buildPlanetPeriod(system.getSpeed());
+			Integer period = determinePlanetPeriod(system.getSpeed());
 
 			// JavaNCSS info
 			String name = jcm.getClassName();
-			Integer radius = buildPlanetRadius(new Integer(jcm.getNumMethods()));
-			String hue = buildPlanetHue(new Integer(jcm.getComplexityNumber()));
+			Integer radius = determinePlanetRadius(new Integer(jcm.getNumMethods()));
+			String hue = determinePlanetHue(new Integer(jcm.getComplexityNumber()));
 			
 			// StatSVN info
-//			Integer numRevisions = new Integer(0);
-//			
-			// TODO need to loop through class metrics to find matching class for numRevisions
-//			for (StatSVNClassMetric scm : sMetrics.getClassMetricsList()) {
-//				if (scm.getClassName().equals(name)) {
-//					numRevisions = scm.getNumRevisions();
-//					break;
-//				}
-//			}
-//			Integer axis = buildPlanetAxis(numRevisions);
-			// TODO remove when above works
-			Integer axis = new Integer(0);
+			Integer numRevisions = new Integer(0);
+			
+			for (StatSVNClassMetric scm : sMetrics.getClassMetricsList()) {
+				if (scm.getClassName().equals(name)) {
+					numRevisions = scm.getNumRevisions();
+					break;
+				}
+			}
+			
+			Float axis = determinePlanetAxis(numRevisions);
 			
 			Planet p = new Planet(id, name, radius, axis, period, hue);  
 			planets.add(p);
@@ -101,59 +99,60 @@ public class SolarSystemBuilder {
 		system.setPlanets(planets);
 	}
 
-	protected String buildPlanetHue(Integer complexity) {
-		// TODO construct planet hue from complexity number
+
+	protected String determinePlanetHue(Integer complexity) {
+		// TODO 
 		return "FFFFFF";
 	}
 
-	protected Integer buildPlanetPeriod(Integer speed) {
+	protected Integer determinePlanetPeriod(Integer speed) {
 		Integer period;
-		if (speed <= 3)
-			period = new Integer(18); 
-		else if (3 < speed && speed <= 6) 
-			period = new Integer(15);
-		else if (6 < speed && speed <= 9)
-			period = new Integer(12);
-		else if (9 < speed && speed <= 12)
-			period = new Integer(9);
-		else if (12 < speed && speed <= 15)
-			period = new Integer(6);
+		if (speed <= SolarSystemConstants.SPEED_1)
+			period = SolarSystemConstants.PERIOD_6;
+		else if (SolarSystemConstants.SPEED_1 < speed && speed <= SolarSystemConstants.SPEED_2) 
+			period = SolarSystemConstants.PERIOD_5;
+		else if (SolarSystemConstants.SPEED_2 < speed && speed <= SolarSystemConstants.SPEED_3)
+			period = SolarSystemConstants.PERIOD_4;
+		else if (SolarSystemConstants.SPEED_3 < speed && speed <= SolarSystemConstants.SPEED_4)
+			period = SolarSystemConstants.PERIOD_3;
+		else if (SolarSystemConstants.SPEED_4 < speed && speed <= SolarSystemConstants.SPEED_5)
+			period = SolarSystemConstants.PERIOD_2;
 		else 
-			period = new Integer(3);
+			period = SolarSystemConstants.PERIOD_1;
 		return period;
 	}
 
-	protected Float buildPlanetAxis(Integer numRevisions) {
+	protected Float determinePlanetAxis(Integer numRevisions) {
 		Float axis;
-		if (numRevisions <= 1000)
-			axis = new Float(0.2); 
-		else if (1000 < numRevisions && numRevisions <= 2000) 
-			axis = new Float(0.4);
-		else if (2000 < numRevisions && numRevisions <= 3000)
-			axis = new Float(0.6);
-		else if (3000 < numRevisions && numRevisions <= 4000)
-			axis = new Float(0.8);
-		else if (4000 < numRevisions && numRevisions <= 5000)
-			axis = new Float(1.0);
+		if (numRevisions <= SolarSystemConstants.REVISIONS_1)
+			axis = SolarSystemConstants.AXIS_1; 
+		else if (SolarSystemConstants.REVISIONS_1 < numRevisions && numRevisions <= SolarSystemConstants.REVISIONS_2) 
+			axis = SolarSystemConstants.AXIS_2; 
+		else if (SolarSystemConstants.REVISIONS_2 < numRevisions && numRevisions <= SolarSystemConstants.REVISIONS_3)
+			axis = SolarSystemConstants.AXIS_3; 
+		else if (SolarSystemConstants.REVISIONS_3 < numRevisions && numRevisions <= SolarSystemConstants.REVISIONS_4)
+			axis = SolarSystemConstants.AXIS_4; 
+		else if (SolarSystemConstants.REVISIONS_4 < numRevisions && numRevisions <= SolarSystemConstants.REVISIONS_5)
+			axis = SolarSystemConstants.AXIS_5; 
 		else 
-			axis = new Float(1.2);
+			axis = SolarSystemConstants.AXIS_6; 
 		return axis;
 	}
 
-	protected Integer buildPlanetRadius(Integer numMethods) {
+	protected Integer determinePlanetRadius(Integer numMethods) {
 		Integer radius;
-		if (numMethods <= 3)
-			radius = new Integer(10); 
-		else if (3 < numMethods && numMethods <= 6) 
-			radius = new Integer(20);
-		else if (6 < numMethods && numMethods <= 9)
-			radius = new Integer(30);
-		else if (9 < numMethods && numMethods <= 12)
-			radius = new Integer(40);
-		else if (12 < numMethods && numMethods <= 15)
-			radius = new Integer(50);
+		if (numMethods <= SolarSystemConstants.METHODS_1)
+			radius = SolarSystemConstants.RADIUS_1;
+		else if (SolarSystemConstants.METHODS_1 < numMethods && numMethods <= SolarSystemConstants.METHODS_2) 
+			radius = SolarSystemConstants.RADIUS_2;
+		else if (SolarSystemConstants.METHODS_2 < numMethods && numMethods <= SolarSystemConstants.METHODS_3)
+			radius = SolarSystemConstants.RADIUS_3;
+		else if (SolarSystemConstants.METHODS_3 < numMethods && numMethods <= SolarSystemConstants.METHODS_4)
+			radius = SolarSystemConstants.RADIUS_4;
+		else if (SolarSystemConstants.METHODS_4 < numMethods && numMethods <= SolarSystemConstants.METHODS_5)
+			radius = SolarSystemConstants.RADIUS_5;
 		else 
-			radius = new Integer(60);
+			radius = SolarSystemConstants.RADIUS_6;
 		return radius;
 	}
 

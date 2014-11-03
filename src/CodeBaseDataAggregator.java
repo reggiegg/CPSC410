@@ -28,11 +28,8 @@ public class CodeBaseDataAggregator {
 	private SolarSystem constructSolarSystem(){
 		builder = new SolarSystemBuilder();
 		
-		// TODO swap these for real calls, once methods are in place
-		builder.buildColour(new Integer(10));
-		//builder.buildColour(sMetrics.getNumberOfDevelopers()); 
-		builder.buildSpeed(new Integer(5));
-		//builder.buildSpeed(sMetrics.getChurn());
+		builder.buildColour(sMetrics.getNumDevelopers()); 
+		builder.buildSpeed(sMetrics.getChurn());
 		
 		builder.buildPlanets(jMetrics, sMetrics);
 		return builder.getResult();

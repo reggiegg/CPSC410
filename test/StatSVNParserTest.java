@@ -37,7 +37,7 @@ public class StatSVNParserTest {
 	@Test
 	public void testParseNumRevisions() 
 	{
-		int numDevelopers = ssvnm.getnumDevelopers();
+		int numDevelopers = ssvnm.getNumDevelopers();
 		assertEquals(TEST_DEVELOPERS, numDevelopers);
 	}
 	

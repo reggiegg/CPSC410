@@ -28,7 +28,7 @@ public class StatSVNClassMetric {
 		return className;
 	}
 	
-	public int getNumMethods() {
+	public int getNumRevisions() {
 		return numRevisions;
 	}
 }
