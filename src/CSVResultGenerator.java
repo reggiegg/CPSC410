@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class CSVResultGenerator {
 	
     private static final String CSV_SEPARATOR = ",";
-    private static final String HEADERS = "period,planet_radius,semimajor_axis,stellar_radius,stellar_teff,id,planet_name";
+    private static final String HEADERS = "period,planet_radius,semimajor_axis,stellar_radius,stellar_teff,id,planet_name,hue";
     
     public static void writeToCSV(SolarSystem solarSystem)
     {
