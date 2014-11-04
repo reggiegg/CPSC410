@@ -10,11 +10,11 @@ public class SolarSystemConstants {
 	public static final int METHODS_4 = 12;
 	public static final int METHODS_5 = 15;
 	
-	public static final int REVISIONS_1 = 1000;
-	public static final int REVISIONS_2 = 2000;
-	public static final int REVISIONS_3 = 3000;
-	public static final int REVISIONS_4 = 4000;
-	public static final int REVISIONS_5 = 5000;
+	public static final int REVISIONS_1 = 10;
+	public static final int REVISIONS_2 = 20;
+	public static final int REVISIONS_3 = 30;
+	public static final int REVISIONS_4 = 40;
+	public static final int REVISIONS_5 = 50;
 
 	public static final int DEVS_1 = 3;
 	public static final int DEVS_2 = 6;
@@ -22,11 +22,11 @@ public class SolarSystemConstants {
 	public static final int DEVS_4 = 12;
 	public static final int DEVS_5 = 15;
 	
-	public static final int CHURN_1 = 1000;
-	public static final int CHURN_2 = 2000;
-	public static final int CHURN_3 = 3000;
-	public static final int CHURN_4 = 4000;
-	public static final int CHURN_5 = 5000;
+	public static final int CHURN_1 = 100;
+	public static final int CHURN_2 = 200;
+	public static final int CHURN_3 = 300;
+	public static final int CHURN_4 = 400;
+	public static final int CHURN_5 = 500;
 	
 	// Output values
 	
