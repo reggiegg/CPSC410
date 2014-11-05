@@ -20,13 +20,6 @@ public class SolarSystemBuilderTest {
 	private Integer testRedLow = SolarSystemConstants.DEVS_5+1;
 	private Integer testRedHigh = new Integer(1000);
 	
-	private String purple = SolarSystemConstants.PURPLE;
-	private String blue = SolarSystemConstants.BLUE;
-	private String green = SolarSystemConstants.GREEN;
-	private String yellow = SolarSystemConstants.YELLOW;
-	private String orange = SolarSystemConstants.ORANGE;
-	private String red = SolarSystemConstants.RED;
-	
 	private Integer testChurnFirstLevelLow = new Integer(1);
 	private Integer testChurnFirstLevelHigh = new Integer(SolarSystemConstants.CHURN_1);
 	private Integer testChurnSecondLevelLow = new Integer(SolarSystemConstants.CHURN_1+1);
@@ -39,34 +32,6 @@ public class SolarSystemBuilderTest {
 	private Integer testChurnFifthLevelHigh = new Integer(SolarSystemConstants.CHURN_5);
 	private Integer testChurnSixthLevelLow = new Integer(SolarSystemConstants.CHURN_5+1);
 	private Integer testChurnSixthLevelHigh = new Integer(10000);
-
-	private Integer speed1 = SolarSystemConstants.SPEED_1;
-	private Integer speed2 = SolarSystemConstants.SPEED_2;
-	private Integer speed3 = SolarSystemConstants.SPEED_3;
-	private Integer speed4 = SolarSystemConstants.SPEED_4;
-	private Integer speed5 = SolarSystemConstants.SPEED_5;
-	private Integer speed6 = SolarSystemConstants.SPEED_6;
-	
-	private Integer period1 = SolarSystemConstants.PERIOD_1;
-	private Integer period2 = SolarSystemConstants.PERIOD_2;
-	private Integer period3 = SolarSystemConstants.PERIOD_3;
-	private Integer period4 = SolarSystemConstants.PERIOD_4;
-	private Integer period5 = SolarSystemConstants.PERIOD_5;
-	private Integer period6 = SolarSystemConstants.PERIOD_6;
-
-	private Integer radius1 = SolarSystemConstants.RADIUS_1;
-	private Integer radius2 = SolarSystemConstants.RADIUS_2;
-	private Integer radius3 = SolarSystemConstants.RADIUS_3;
-	private Integer radius4 = SolarSystemConstants.RADIUS_4;
-	private Integer radius5 = SolarSystemConstants.RADIUS_5;
-	private Integer radius6 = SolarSystemConstants.RADIUS_6;
-
-	private Float axis1 = SolarSystemConstants.AXIS_1;
-	private Float axis2 = SolarSystemConstants.AXIS_2;
-	private Float axis3 = SolarSystemConstants.AXIS_3;
-	private Float axis4 = SolarSystemConstants.AXIS_4;
-	private Float axis5 = SolarSystemConstants.AXIS_5;
-	private Float axis6 = SolarSystemConstants.AXIS_6;
 	
 	private SolarSystemBuilder builder;
 	
@@ -79,156 +44,317 @@ public class SolarSystemBuilderTest {
 	public void testBuildColourPurple() {
 		assertNull(builder.getResult().getColour());
 		builder.buildColour(testPurpleLow);
-		assertEquals(purple, builder.getResult().getColour());
+		assertEquals(SolarSystemConstants.PURPLE, builder.getResult().getColour());
 		builder.buildColour(testPurpleHigh);
-		assertEquals(purple, builder.getResult().getColour());
+		assertEquals(SolarSystemConstants.PURPLE, builder.getResult().getColour());
 	}
 
 	@Test
 	public void testBuildColourBlue() {
 		assertNull(builder.getResult().getColour());
 		builder.buildColour(testBlueLow);
-		assertEquals(blue, builder.getResult().getColour());
+		assertEquals(SolarSystemConstants.BLUE, builder.getResult().getColour());
 		builder.buildColour(testBlueHigh);
-		assertEquals(blue, builder.getResult().getColour());
+		assertEquals(SolarSystemConstants.BLUE, builder.getResult().getColour());
 	}
 	@Test
 	public void testBuildColourGreen() {
 		assertNull(builder.getResult().getColour());
 		builder.buildColour(testGreenLow);
-		assertEquals(green, builder.getResult().getColour());
+		assertEquals(SolarSystemConstants.GREEN, builder.getResult().getColour());
 		builder.buildColour(testGreenHigh);
-		assertEquals(green, builder.getResult().getColour());
+		assertEquals(SolarSystemConstants.GREEN, builder.getResult().getColour());
 	}
 	
 	@Test
 	public void testBuildColourYellow() {
 		assertNull(builder.getResult().getColour());
 		builder.buildColour(testYellowLow);
-		assertEquals(yellow, builder.getResult().getColour());
+		assertEquals(SolarSystemConstants.YELLOW, builder.getResult().getColour());
 		builder.buildColour(testYellowHigh);
-		assertEquals(yellow, builder.getResult().getColour());
+		assertEquals(SolarSystemConstants.YELLOW, builder.getResult().getColour());
 	}
 	
 	@Test
 	public void testBuildColourOrange() {
 		assertNull(builder.getResult().getColour());
 		builder.buildColour(testOrangeLow);
-		assertEquals(orange, builder.getResult().getColour());
+		assertEquals(SolarSystemConstants.ORANGE, builder.getResult().getColour());
 		builder.buildColour(testOrangeHigh);
-		assertEquals(orange, builder.getResult().getColour());
+		assertEquals(SolarSystemConstants.ORANGE, builder.getResult().getColour());
 	}
 	
 	@Test
 	public void testBuildColourRed() {
 		assertNull(builder.getResult().getColour());
 		builder.buildColour(testRedLow);
-		assertEquals(red, builder.getResult().getColour());
+		assertEquals(SolarSystemConstants.RED, builder.getResult().getColour());
 		builder.buildColour(testRedHigh);
-		assertEquals(red, builder.getResult().getColour());
+		assertEquals(SolarSystemConstants.RED, builder.getResult().getColour());
 	}
 	
 	@Test 
 	public void testBuildSpeed1() {
 		assertNull(builder.getResult().getSpeed());
 		builder.buildSpeed(testChurnFirstLevelLow);
-		assertEquals(speed1, builder.getResult().getSpeed());
+		assertEquals(SolarSystemConstants.SPEED_1, builder.getResult().getSpeed());
 		builder.buildSpeed(testChurnFirstLevelHigh);
-		assertEquals(speed1, builder.getResult().getSpeed());
+		assertEquals(SolarSystemConstants.SPEED_1, builder.getResult().getSpeed());
 	}
 
 	@Test 
 	public void testBuildSpeed2() {
 		assertNull(builder.getResult().getSpeed());
 		builder.buildSpeed(testChurnSecondLevelLow);
-		assertEquals(speed2, builder.getResult().getSpeed());
+		assertEquals(SolarSystemConstants.SPEED_2, builder.getResult().getSpeed());
 		builder.buildSpeed(testChurnSecondLevelHigh);
-		assertEquals(speed2, builder.getResult().getSpeed());
+		assertEquals(SolarSystemConstants.SPEED_2, builder.getResult().getSpeed());
 	}
 
 	@Test 
 	public void testBuildSpeed3() {
 		assertNull(builder.getResult().getSpeed());
 		builder.buildSpeed(testChurnThirdLevelLow);
-		assertEquals(speed3, builder.getResult().getSpeed());
+		assertEquals(SolarSystemConstants.SPEED_3, builder.getResult().getSpeed());
 		builder.buildSpeed(testChurnThirdLevelHigh);
-		assertEquals(speed3, builder.getResult().getSpeed());
+		assertEquals(SolarSystemConstants.SPEED_3, builder.getResult().getSpeed());
 	}
 
 	@Test 
 	public void testBuildSpeed4() {
 		assertNull(builder.getResult().getSpeed());
 		builder.buildSpeed(testChurnFourthLevelLow);
-		assertEquals(speed4, builder.getResult().getSpeed());
+		assertEquals(SolarSystemConstants.SPEED_4, builder.getResult().getSpeed());
 		builder.buildSpeed(testChurnFourthLevelHigh);
-		assertEquals(speed4, builder.getResult().getSpeed());
+		assertEquals(SolarSystemConstants.SPEED_4, builder.getResult().getSpeed());
 	}
 
 	@Test 
 	public void testBuildSpeed5() {
 		assertNull(builder.getResult().getSpeed());
 		builder.buildSpeed(testChurnFifthLevelLow);
-		assertEquals(speed5, builder.getResult().getSpeed());
+		assertEquals(SolarSystemConstants.SPEED_5, builder.getResult().getSpeed());
 		builder.buildSpeed(testChurnFifthLevelHigh);
-		assertEquals(speed5, builder.getResult().getSpeed());
+		assertEquals(SolarSystemConstants.SPEED_5, builder.getResult().getSpeed());
 	}
 
 	@Test 
 	public void testBuildSpeed6() {
 		assertNull(builder.getResult().getSpeed());
 		builder.buildSpeed(testChurnSixthLevelLow);
-		assertEquals(speed6, builder.getResult().getSpeed());
+		assertEquals(SolarSystemConstants.SPEED_6, builder.getResult().getSpeed());
 		builder.buildSpeed(testChurnSixthLevelHigh);
-		assertEquals(speed6, builder.getResult().getSpeed());
+		assertEquals(SolarSystemConstants.SPEED_6, builder.getResult().getSpeed());
 	}
 	
 	@Test 
 	public void testDeterminePlanetPeriod() {
-		assertEquals(period6, builder.determinePlanetPeriod(1));
-		assertEquals(period6, builder.determinePlanetPeriod(speed1));
-		assertEquals(period5, builder.determinePlanetPeriod(speed1+1));
-		assertEquals(period5, builder.determinePlanetPeriod(speed2));
-		assertEquals(period4, builder.determinePlanetPeriod(speed2+1));
-		assertEquals(period4, builder.determinePlanetPeriod(speed3));
-		assertEquals(period3, builder.determinePlanetPeriod(speed3+1));
-		assertEquals(period3, builder.determinePlanetPeriod(speed4));
-		assertEquals(period2, builder.determinePlanetPeriod(speed4+1));
-		assertEquals(period2, builder.determinePlanetPeriod(speed5));
-		assertEquals(period1, builder.determinePlanetPeriod(speed5+1));
-		assertEquals(period1, builder.determinePlanetPeriod(speed6));
-		assertEquals(period1, builder.determinePlanetPeriod(speed6+10000));
+		assertEquals(SolarSystemConstants.PERIOD_6, builder.determinePlanetPeriod(1));
+		assertEquals(SolarSystemConstants.PERIOD_6, builder.determinePlanetPeriod(SolarSystemConstants.SPEED_1));
+		assertEquals(SolarSystemConstants.PERIOD_5, builder.determinePlanetPeriod(SolarSystemConstants.SPEED_1+1));
+		assertEquals(SolarSystemConstants.PERIOD_5, builder.determinePlanetPeriod(SolarSystemConstants.SPEED_2));
+		assertEquals(SolarSystemConstants.PERIOD_4, builder.determinePlanetPeriod(SolarSystemConstants.SPEED_2+1));
+		assertEquals(SolarSystemConstants.PERIOD_4, builder.determinePlanetPeriod(SolarSystemConstants.SPEED_3));
+		assertEquals(SolarSystemConstants.PERIOD_3, builder.determinePlanetPeriod(SolarSystemConstants.SPEED_3+1));
+		assertEquals(SolarSystemConstants.PERIOD_3, builder.determinePlanetPeriod(SolarSystemConstants.SPEED_4));
+		assertEquals(SolarSystemConstants.PERIOD_2, builder.determinePlanetPeriod(SolarSystemConstants.SPEED_4+1));
+		assertEquals(SolarSystemConstants.PERIOD_2, builder.determinePlanetPeriod(SolarSystemConstants.SPEED_5));
+		assertEquals(SolarSystemConstants.PERIOD_1, builder.determinePlanetPeriod(SolarSystemConstants.SPEED_5+1));
+		assertEquals(SolarSystemConstants.PERIOD_1, builder.determinePlanetPeriod(SolarSystemConstants.SPEED_6));
+		assertEquals(SolarSystemConstants.PERIOD_1, builder.determinePlanetPeriod(SolarSystemConstants.SPEED_6+10000));
 	}
 	
 	@Test
 	public void testDeterminePlanetRadius() {
-		assertEquals(radius1, builder.determinePlanetRadius(1));
-		assertEquals(radius1, builder.determinePlanetRadius(3));
-		assertEquals(radius2, builder.determinePlanetRadius(4));
-		assertEquals(radius2, builder.determinePlanetRadius(6));
-		assertEquals(radius3, builder.determinePlanetRadius(7));
-		assertEquals(radius3, builder.determinePlanetRadius(9));
-		assertEquals(radius4, builder.determinePlanetRadius(10));
-		assertEquals(radius4, builder.determinePlanetRadius(12));
-		assertEquals(radius5, builder.determinePlanetRadius(13));
-		assertEquals(radius5, builder.determinePlanetRadius(15));
-		assertEquals(radius6, builder.determinePlanetRadius(16));
-		assertEquals(radius6, builder.determinePlanetRadius(10000));
+		assertEquals(SolarSystemConstants.RADIUS_1, builder.determinePlanetRadius(1));
+		assertEquals(SolarSystemConstants.RADIUS_1, builder.determinePlanetRadius(SolarSystemConstants.METHODS_1));
+		assertEquals(SolarSystemConstants.RADIUS_2, builder.determinePlanetRadius(SolarSystemConstants.METHODS_1+1));
+		assertEquals(SolarSystemConstants.RADIUS_2, builder.determinePlanetRadius(SolarSystemConstants.METHODS_2));
+		assertEquals(SolarSystemConstants.RADIUS_3, builder.determinePlanetRadius(SolarSystemConstants.METHODS_2+1));
+		assertEquals(SolarSystemConstants.RADIUS_3, builder.determinePlanetRadius(SolarSystemConstants.METHODS_3));
+		assertEquals(SolarSystemConstants.RADIUS_4, builder.determinePlanetRadius(SolarSystemConstants.METHODS_3+1));
+		assertEquals(SolarSystemConstants.RADIUS_4, builder.determinePlanetRadius(SolarSystemConstants.METHODS_4));
+		assertEquals(SolarSystemConstants.RADIUS_5, builder.determinePlanetRadius(SolarSystemConstants.METHODS_4+1));
+		assertEquals(SolarSystemConstants.RADIUS_5, builder.determinePlanetRadius(SolarSystemConstants.METHODS_5));
+		assertEquals(SolarSystemConstants.RADIUS_6, builder.determinePlanetRadius(SolarSystemConstants.METHODS_5+1));
+		assertEquals(SolarSystemConstants.RADIUS_6, builder.determinePlanetRadius(10000));
 	}
 
 	@Test
 	public void testDeterminePlanetAxis() {
-		assertEquals(axis1, builder.determinePlanetAxis(1));
-		assertEquals(axis1, builder.determinePlanetAxis(1000));
-		assertEquals(axis2, builder.determinePlanetAxis(1001));
-		assertEquals(axis2, builder.determinePlanetAxis(2000));
-		assertEquals(axis3, builder.determinePlanetAxis(2001));
-		assertEquals(axis3, builder.determinePlanetAxis(3000));
-		assertEquals(axis4, builder.determinePlanetAxis(3001));
-		assertEquals(axis4, builder.determinePlanetAxis(4000));
-		assertEquals(axis5, builder.determinePlanetAxis(4001));
-		assertEquals(axis5, builder.determinePlanetAxis(5000));
-		assertEquals(axis6, builder.determinePlanetAxis(5001));
-		assertEquals(axis6, builder.determinePlanetAxis(10000));
+		assertEquals(SolarSystemConstants.AXIS_1, builder.determinePlanetAxis(1));
+		assertEquals(SolarSystemConstants.AXIS_1, builder.determinePlanetAxis(SolarSystemConstants.REVISIONS_1));
+		assertEquals(SolarSystemConstants.AXIS_2, builder.determinePlanetAxis(SolarSystemConstants.REVISIONS_1+1));
+		assertEquals(SolarSystemConstants.AXIS_2, builder.determinePlanetAxis(SolarSystemConstants.REVISIONS_2));
+		assertEquals(SolarSystemConstants.AXIS_3, builder.determinePlanetAxis(SolarSystemConstants.REVISIONS_2+1));
+		assertEquals(SolarSystemConstants.AXIS_3, builder.determinePlanetAxis(SolarSystemConstants.REVISIONS_3));
+		assertEquals(SolarSystemConstants.AXIS_4, builder.determinePlanetAxis(SolarSystemConstants.REVISIONS_3+1));
+		assertEquals(SolarSystemConstants.AXIS_4, builder.determinePlanetAxis(SolarSystemConstants.REVISIONS_4));
+		assertEquals(SolarSystemConstants.AXIS_5, builder.determinePlanetAxis(SolarSystemConstants.REVISIONS_4+1));
+		assertEquals(SolarSystemConstants.AXIS_5, builder.determinePlanetAxis(SolarSystemConstants.REVISIONS_5));
+		assertEquals(SolarSystemConstants.AXIS_6, builder.determinePlanetAxis(SolarSystemConstants.REVISIONS_5+1));
+		assertEquals(SolarSystemConstants.AXIS_6, builder.determinePlanetAxis(10000));
 	}
+	
+	@Test
+	public void testDeterminePlanetHueRed() {
+		Integer baseHex = Integer.parseInt(SolarSystemConstants.RED, 16);
+		Integer mult = SolarSystemConstants.MULT_RED;
+		
+		Integer comp = 2;
+		Integer addOn = comp * mult;
+		Integer newColour = baseHex + addOn;
+		
+		builder.buildColour(testRedLow);
+		assertEquals(SolarSystemConstants.RED, builder.getResult().getColour());
+		
+		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.21167));
+		
+		comp = 7;
+		addOn = comp * mult;
+		newColour = baseHex + addOn;
+		
+		builder.buildColour(testRedHigh);
+		assertEquals(SolarSystemConstants.RED, builder.getResult().getColour());
+		
+		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.74530));
+		
+	}
+	
+	@Test
+	public void testDeterminePlanetHueOrange() {
+		Integer baseHex = Integer.parseInt(SolarSystemConstants.ORANGE, 16);
+		Integer mult = SolarSystemConstants.MULT_ORANGE;
+		
+		Integer comp = 3;
+		Integer addOn = comp * mult;
+		Integer newColour = baseHex + addOn;
+		
+		builder.buildColour(testOrangeLow);
+		assertEquals(SolarSystemConstants.ORANGE, builder.getResult().getColour());
+		
+		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.31167));
+		
+		comp = 5;
+		addOn = comp * mult;
+		newColour = baseHex + addOn;
+		
+		builder.buildColour(testOrangeHigh);
+		assertEquals(SolarSystemConstants.ORANGE, builder.getResult().getColour());
+		
+		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.52993));
+	}
+	
+	@Test
+	public void testDeterminePlanetHueYellow() {
+		Integer baseHex = Integer.parseInt(SolarSystemConstants.YELLOW, 16);
+		Integer mult = SolarSystemConstants.MULT_YELLOW;
+		
+		Integer comp = 1;
+		Integer addOn = comp * mult;
+		Integer newColour = baseHex + addOn;
+		
+		builder.buildColour(testYellowLow);
+		assertEquals(SolarSystemConstants.YELLOW, builder.getResult().getColour());
+		
+		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.11167));
+		
+		comp = 6;
+		addOn = comp * mult;
+		newColour = baseHex + addOn;
+		
+		builder.buildColour(testYellowHigh);
+		assertEquals(SolarSystemConstants.YELLOW, builder.getResult().getColour());
+		
+		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.59937));
+		
+	}
+	
+	
+	@Test
+	public void testDeterminePlanetHueGreen() {
+		Integer baseHex = Integer.parseInt(SolarSystemConstants.GREEN, 16);
+		Integer mult = SolarSystemConstants.MULT_GREEN;
+		
+		Integer comp = 4;
+		Integer addOn = comp * mult;
+		Integer newColour = baseHex + addOn;
+		
+		builder.buildColour(testGreenLow);
+		assertEquals(SolarSystemConstants.GREEN, builder.getResult().getColour());
+		
+		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.41697));
+		
+		comp = 8;
+		addOn = comp * mult;
+		newColour = baseHex + addOn;
+		
+		builder.buildColour(testGreenHigh);
+		assertEquals(SolarSystemConstants.GREEN, builder.getResult().getColour());
+		
+		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.81679));
+		
+	}
+	
+	@Test
+	public void testDeterminePlanetHueBlue() {
+		Integer baseHex = Integer.parseInt(SolarSystemConstants.BLUE, 16);
+		Integer mult = SolarSystemConstants.MULT_BLUE;
+		
+		Integer comp = 2;
+		Integer addOn = comp * mult;
+		Integer newColour = baseHex + addOn;
+		
+		builder.buildColour(testBlueLow);
+		assertEquals(SolarSystemConstants.BLUE, builder.getResult().getColour());
+		
+		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.19007));
+		
+		comp = 9;
+		addOn = comp * mult;
+		newColour = baseHex + addOn;
+		
+		builder.buildColour(testBlueHigh);
+		assertEquals(SolarSystemConstants.BLUE, builder.getResult().getColour());
+		
+		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.88427));
+		
+	}
+	
+	@Test
+	public void testDeterminePlanetHuePurple() {
+		Integer baseHex = Integer.parseInt(SolarSystemConstants.PURPLE, 16);
+		Integer mult = SolarSystemConstants.MULT_PURPLE;
+		
+		Integer comp = 4;
+		Integer addOn = comp * mult;
+		Integer newColour = baseHex + addOn;
+		
+		builder.buildColour(testPurpleLow);
+		assertEquals(SolarSystemConstants.PURPLE, builder.getResult().getColour());
+		
+		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.40862));
+		
+		comp = 5;
+		addOn = comp * mult;
+		newColour = baseHex + addOn;
+		
+		builder.buildColour(testPurpleHigh);
+		assertEquals(SolarSystemConstants.PURPLE, builder.getResult().getColour());
+		
+		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.52370));
+
+	}
+	
+	@Test
+	public void testGetMultiplier() {
+		assertEquals(SolarSystemConstants.MULT_RED, builder.getMultiplier(SolarSystemConstants.RED));
+		assertEquals(SolarSystemConstants.MULT_ORANGE, builder.getMultiplier(SolarSystemConstants.ORANGE));
+		assertEquals(SolarSystemConstants.MULT_YELLOW, builder.getMultiplier(SolarSystemConstants.YELLOW));
+		assertEquals(SolarSystemConstants.MULT_GREEN, builder.getMultiplier(SolarSystemConstants.GREEN));
+		assertEquals(SolarSystemConstants.MULT_BLUE, builder.getMultiplier(SolarSystemConstants.BLUE));
+		assertEquals(SolarSystemConstants.MULT_PURPLE, builder.getMultiplier(SolarSystemConstants.PURPLE));
+	}
+	
 
 }

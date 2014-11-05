@@ -78,7 +78,7 @@ public class SolarSystemBuilder {
 			// JavaNCSS info
 			String name = jcm.getClassName();
 			Integer radius = determinePlanetRadius(new Integer(jcm.getNumMethods()));
-			String hue = determinePlanetHue(new Integer(jcm.getComplexityNumber()));
+			String hue = determinePlanetHue(new Float(jcm.getComplexityDensity()));
 
 			// StatSVN info
 			Integer numRevisions = new Integer(0);
@@ -99,16 +99,17 @@ public class SolarSystemBuilder {
 		system.setPlanets(planets);
 	}
 
-	protected String determinePlanetHue(Integer complexity) {
+	protected String determinePlanetHue(Float complexity) {
 		String baseColour = system.getColour();
 		Integer baseHex = Integer.parseInt(baseColour, 16);
 		Integer multiplier = getMultiplier(baseColour);
-		Integer addOn = complexity * multiplier;
+		Integer comp = Math.round(complexity * 10);
+		Integer addOn = comp * multiplier;
 		Integer newColour = baseHex + addOn;
 		return String.valueOf(newColour);
 	}
 
-	private Integer getMultiplier(String colour) {
+	protected Integer getMultiplier(String colour) {
 		if (colour == SolarSystemConstants.RED)
 			return SolarSystemConstants.MULT_RED;
 		else if (colour == SolarSystemConstants.ORANGE)

@@ -3,18 +3,17 @@ public class SolarSystemConstants {
 
 	// Input values
 
-	// TODO tweak these?
 	public static final int METHODS_1 = 3;
 	public static final int METHODS_2 = 6;
 	public static final int METHODS_3 = 9;
 	public static final int METHODS_4 = 12;
 	public static final int METHODS_5 = 15;
 	
-	public static final int REVISIONS_1 = 10;
-	public static final int REVISIONS_2 = 20;
-	public static final int REVISIONS_3 = 30;
-	public static final int REVISIONS_4 = 40;
-	public static final int REVISIONS_5 = 50;
+	public static final int REVISIONS_1 = 4;
+	public static final int REVISIONS_2 = 8;
+	public static final int REVISIONS_3 = 12;
+	public static final int REVISIONS_4 = 16;
+	public static final int REVISIONS_5 = 20;
 
 	public static final int DEVS_1 = 3;
 	public static final int DEVS_2 = 6;
