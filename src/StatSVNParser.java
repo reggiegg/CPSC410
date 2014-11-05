@@ -113,13 +113,15 @@ public class StatSVNParser {
 
 							// Extract path name and class name
 							String path = fileList.item(k).getFirstChild().getTextContent();
-							String className = null;
-							if(path.contains("/")){
+							String className = "";
+							if(path.contains("/")) {
 								className = path.substring(path.lastIndexOf("/") + 1, path.length());
-
-							}
-							else {
+							} else {
 								className = path;
+							}
+							if(path.contains("."))
+							{
+								className = className.substring(0, className.lastIndexOf("."));
 							}
 							
 							// If we've seen this file before, then update it, if not, create it.
