@@ -64,6 +64,8 @@ public class Initiator {
 					javaNCSSStats.delete();
 				}				
 				System.out.println("Executing JavaNCSS...");
+				
+				System.out.println("javancss-32.53/bin/javancss -recursive -xml -all -out "+javaNCSSStats.getAbsolutePath()+" "+modulepath.getAbsolutePath());
 				Process javaNCSSProcess = rt.exec("javancss-32.53/bin/javancss -recursive -xml -all -out "+javaNCSSStats.getAbsolutePath()+" "+modulepath.getAbsolutePath());
 				javaNCSSProcess.waitFor();
 				
