@@ -110,20 +110,22 @@ public class StatSVNParser {
 						
 						// Iterate through each changed file
 						for (int k = 0; k < fileList.getLength(); k++) {
-
+									
 							// Extract path name and class name
 							String path = fileList.item(k).getFirstChild().getTextContent();
+							if(!path.contains(".java")) {
+								continue;
+							}
+							
 							String className = "";
 							if(path.contains("/")) {
 								className = path.substring(path.lastIndexOf("/") + 1, path.length());
 							} else {
 								className = path;
 							}
-							if(path.contains("."))
-							{
-								className = className.substring(0, className.lastIndexOf("."));
-							}
 							
+							className = className.substring(0, className.lastIndexOf("."));
+							System.out.println(className);
 							// If we've seen this file before, then update it, if not, create it.
 							ClassInfo classInfo = classesMap.get(path);
 							
