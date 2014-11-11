@@ -125,7 +125,6 @@ public class StatSVNParser {
 							}
 							
 							className = className.substring(0, className.lastIndexOf("."));
-							System.out.println(className);
 							// If we've seen this file before, then update it, if not, create it.
 							ClassInfo classInfo = classesMap.get(path);
 							
