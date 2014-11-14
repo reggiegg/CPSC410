@@ -24,8 +24,6 @@ public class CSVResultGenerator {
     public static void writeToCSV(SolarSystem solarSystem)
     {
         try {
-        	// TODO change this to reflect where the file should go.
-        	// Currently, the file is being written to the top level of this program (i.e. SolarSystemSVNVisuaizer).
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("site/planets.csv")));
             
             ArrayList<Planet> planetList = solarSystem.getPlanets();

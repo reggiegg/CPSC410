@@ -5,7 +5,11 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-
+/**
+ * This class tests the methods in the SolarSystem class.
+ * @author Susannah Kirby
+ *
+ */
 public class SolarSystemTest {
 
 	private Integer testInt = new Integer(5);

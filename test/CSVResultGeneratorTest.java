@@ -2,6 +2,14 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * This class tests the CSVResultGenerator by sending it a SolarSystem containing mock 
+ * planets constructed in the setup() method. To pass the test, the class should output
+ * a "planets.csv" file to the "site/" folder (where it can be used by index.html).
+ * 
+ * @author Susannah
+ *
+ */
 public class CSVResultGeneratorTest {
 	
 	private ArrayList<Planet> planets = new ArrayList<Planet>();

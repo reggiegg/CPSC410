@@ -4,7 +4,11 @@ import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.Test;
 
-
+/**
+ * This class contains tests for methods in the SolarSystemBuilder class.
+ * @author Susannah Kirby
+ *
+ */
 public class SolarSystemBuilderTest {
 	
 	private Integer testPurpleLow = new Integer(1);
@@ -347,7 +351,7 @@ public class SolarSystemBuilderTest {
 	}
 	
 	@Test
-	public void testGetMultiplier() {
+	public void testGetMultiplierForHueComputation() {
 		assertEquals(SolarSystemConstants.MULT_RED, builder.getMultiplier(SolarSystemConstants.RED));
 		assertEquals(SolarSystemConstants.MULT_ORANGE, builder.getMultiplier(SolarSystemConstants.ORANGE));
 		assertEquals(SolarSystemConstants.MULT_YELLOW, builder.getMultiplier(SolarSystemConstants.YELLOW));

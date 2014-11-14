@@ -25,7 +25,7 @@ public class CodeBaseDataAggregator {
 		return solarSystem;
 	}
 	
-	private SolarSystem constructSolarSystem(){
+	protected SolarSystem constructSolarSystem(){
 		builder = new SolarSystemBuilder();
 		
 		builder.buildColour(sMetrics.getNumDevelopers()); 
@@ -35,5 +35,12 @@ public class CodeBaseDataAggregator {
 		return builder.getResult();
 	}
 
+	protected JavaNCSSMetrics getJMetrics() {
+		return this.jMetrics;
+	}
+	
+	protected StatSVNMetrics getSMetrics() {
+		return this.sMetrics;
+	}
 	
 }

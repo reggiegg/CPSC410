@@ -1,4 +1,8 @@
-
+/**
+ * This class contains constants used in the SolarSystemBuilder system-building process.
+ * @author Susannah
+ *
+ */
 public class SolarSystemConstants {
 
 	// Input values

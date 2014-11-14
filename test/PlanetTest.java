@@ -3,7 +3,11 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-
+/**
+ * This class contains unit tests for the methods in the Planet class.
+ * @author Susannah
+ *
+ */
 public class PlanetTest {
 	
 	private Planet planet;
