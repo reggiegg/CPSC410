@@ -82,14 +82,20 @@ public class SolarSystemBuilder {
 
 			// StatSVN info
 			Integer numRevisions = new Integer(0);
-
+			System.out.println("Name: " + name);
+			System.out.println("FullyQ Name: " + jcm.getQualifiedClassName());
+			
 			for (StatSVNClassMetric scm : sMetrics.getClassMetricsList()) {
+				
+				System.out.println("SCM Name: " + scm.getClassName());
+				
 				if (scm.getClassName().equals(name)) {
+					System.out.println(scm.getNumRevisions());
 					numRevisions = scm.getNumRevisions();
 					break;
 				}
 			}
-
+			
 			Float axis = determinePlanetAxis(numRevisions);
 
 			Planet p = new Planet(id, name, radius, axis, period, hue);  
@@ -143,6 +149,7 @@ public class SolarSystemBuilder {
 
 	protected Float determinePlanetAxis(Integer numRevisions) {
 		Float axis;
+		
 		if (numRevisions <= SolarSystemConstants.REVISIONS_1)
 			axis = SolarSystemConstants.AXIS_1; 
 		else if (SolarSystemConstants.REVISIONS_1 < numRevisions && numRevisions <= SolarSystemConstants.REVISIONS_2) 

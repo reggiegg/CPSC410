@@ -27,6 +27,7 @@ public class Initiator {
 		Scanner sc = new Scanner(System.in);
 		args = sc.nextLine().split(" +");
 		sc.close();
+		System.out.println("This IS PRINTING");
 		
 
 		if (args.length != 2){
