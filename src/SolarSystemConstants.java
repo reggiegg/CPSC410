@@ -13,11 +13,11 @@ public class SolarSystemConstants {
 	public static final int METHODS_4 = 12;
 	public static final int METHODS_5 = 15;
 	
-	public static final int REVISIONS_1 = 4;
-	public static final int REVISIONS_2 = 8;
-	public static final int REVISIONS_3 = 12;
-	public static final int REVISIONS_4 = 16;
-	public static final int REVISIONS_5 = 20;
+	public static final int REVISIONS_1 = 1;
+	public static final int REVISIONS_2 = 2;
+	public static final int REVISIONS_3 = 3;
+	public static final int REVISIONS_4 = 4;
+	public static final int REVISIONS_5 = 5;
 
 	public static final int DEVS_1 = 3;
 	public static final int DEVS_2 = 6;

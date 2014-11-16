@@ -54,7 +54,7 @@ body {
 }
 
 .planet circle {
-  fill: url(#planet-gradient);
+  /*fill: url(#planet-gradient);*/
 }
 
 @-moz-keyframes rotate {

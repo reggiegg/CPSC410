@@ -26,15 +26,13 @@ public class Initiator {
 		// temporary interface for defining arguments
 		Scanner sc = new Scanner(System.in);
 		args = sc.nextLine().split(" +");
-		sc.close();
-		System.out.println("This IS PRINTING");
-		
+		sc.close();	
 
 		if (args.length != 2){
 			printUsageInstructions();
 		}else{
 			
-			//String paths = "/home/reggie/Documents/CPSC410/spamassassin/trunk/logfile.log /home/reggie/Documents/CPSC410/spamassassin/trunk/";
+			//String paths = "/home/reggie/Documents/CPSC410/project/logfile.log /home/reggie/Documents/CPSC410/project/testing/";
 
 			File logfile =  new File(args[0]);
 			File modulepath = new File(args[1]);

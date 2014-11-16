@@ -75,9 +75,12 @@ d3.csv("planets.csv", type, function(error, planets) {
       .style(prefix + "animation-duration", function(d) { return t(d.period) + "s"; })
       .style(prefix + "transform-origin", function(d) { return d.system.radius + "px " + d.system.radius + "px"; })
     .append("circle")
+      .attr("style", function(d) { return "fill:#"+d.hue.toString().substring(1,7);})
       .attr("transform", function(d) { return "translate(" + d.system.radius + "," + d.system.radius + ")"; })
       .attr("cx", function(d) { return x(d.semimajor_axis); })
       .attr("r", function(d) { return r(d.planet_radius); });
+
+
 });
 
 function type(d) {
@@ -85,6 +88,7 @@ function type(d) {
   d.planet_radius = +d.planet_radius;
   d.semimajor_axis = +d.semimajor_axis;
   d.stellar_radius = +d.stellar_radius;
+  d.hue = +d.hue
   return d;
 }
 
