@@ -202,151 +202,151 @@ public class SolarSystemBuilderTest {
 	
 	@Test
 	public void testDeterminePlanetHueRed() {
-		Integer baseHex = Integer.parseInt(SolarSystemConstants.RED, 16);
+		Integer baseHex = Integer.decode(SolarSystemConstants.RED);
 		Integer mult = SolarSystemConstants.MULT_RED;
 		
 		Integer comp = 2;
 		Integer addOn = comp * mult;
-		Integer newColour = baseHex + addOn;
+		Integer newColour = baseHex - addOn;
 		
 		builder.buildColour(testRedLow);
 		assertEquals(SolarSystemConstants.RED, builder.getResult().getColour());
 		
-		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.21167));
+		assertEquals(String.format("%06x", newColour), builder.determinePlanetHue((float) 0.21167));
 		
 		comp = 7;
 		addOn = comp * mult;
-		newColour = baseHex + addOn;
+		newColour = baseHex - addOn;
 		
 		builder.buildColour(testRedHigh);
 		assertEquals(SolarSystemConstants.RED, builder.getResult().getColour());
 		
-		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.74530));
+		assertEquals(String.format("%06x", newColour), builder.determinePlanetHue((float) 0.74530));
 		
 	}
 	
 	@Test
 	public void testDeterminePlanetHueOrange() {
-		Integer baseHex = Integer.parseInt(SolarSystemConstants.ORANGE, 16);
+		Integer baseHex = Integer.decode(SolarSystemConstants.ORANGE);
 		Integer mult = SolarSystemConstants.MULT_ORANGE;
 		
 		Integer comp = 3;
 		Integer addOn = comp * mult;
-		Integer newColour = baseHex + addOn;
+		Integer newColour = baseHex - addOn;
 		
 		builder.buildColour(testOrangeLow);
 		assertEquals(SolarSystemConstants.ORANGE, builder.getResult().getColour());
 		
-		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.31167));
+		assertEquals(String.format("%06x", newColour), builder.determinePlanetHue((float) 0.31167));
 		
 		comp = 5;
 		addOn = comp * mult;
-		newColour = baseHex + addOn;
+		newColour = baseHex - addOn;
 		
 		builder.buildColour(testOrangeHigh);
 		assertEquals(SolarSystemConstants.ORANGE, builder.getResult().getColour());
 		
-		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.52993));
+		assertEquals(String.format("%06x", newColour), builder.determinePlanetHue((float) 0.52993));
 	}
 	
 	@Test
 	public void testDeterminePlanetHueYellow() {
-		Integer baseHex = Integer.parseInt(SolarSystemConstants.YELLOW, 16);
+		Integer baseHex = Integer.decode(SolarSystemConstants.YELLOW);
 		Integer mult = SolarSystemConstants.MULT_YELLOW;
 		
 		Integer comp = 1;
 		Integer addOn = comp * mult;
-		Integer newColour = baseHex + addOn;
+		Integer newColour = baseHex - addOn;
 		
 		builder.buildColour(testYellowLow);
 		assertEquals(SolarSystemConstants.YELLOW, builder.getResult().getColour());
 		
-		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.11167));
+		assertEquals(String.format("%06x", newColour), builder.determinePlanetHue((float) 0.11167));
 		
 		comp = 6;
 		addOn = comp * mult;
-		newColour = baseHex + addOn;
+		newColour = baseHex - addOn;
 		
 		builder.buildColour(testYellowHigh);
 		assertEquals(SolarSystemConstants.YELLOW, builder.getResult().getColour());
 		
-		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.59937));
+		assertEquals(String.format("%06x", newColour), builder.determinePlanetHue((float) 0.59937));
 		
 	}
 	
 	
 	@Test
 	public void testDeterminePlanetHueGreen() {
-		Integer baseHex = Integer.parseInt(SolarSystemConstants.GREEN, 16);
+		Integer baseHex = Integer.decode(SolarSystemConstants.GREEN);
 		Integer mult = SolarSystemConstants.MULT_GREEN;
 		
 		Integer comp = 4;
 		Integer addOn = comp * mult;
-		Integer newColour = baseHex + addOn;
+		Integer newColour = baseHex - addOn;
 		
 		builder.buildColour(testGreenLow);
 		assertEquals(SolarSystemConstants.GREEN, builder.getResult().getColour());
 		
-		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.41697));
+		assertEquals(String.format("%06x", newColour), builder.determinePlanetHue((float) 0.41697));
 		
 		comp = 8;
 		addOn = comp * mult;
-		newColour = baseHex + addOn;
+		newColour = baseHex - addOn;
 		
 		builder.buildColour(testGreenHigh);
 		assertEquals(SolarSystemConstants.GREEN, builder.getResult().getColour());
 		
-		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.81679));
+		assertEquals(String.format("%06x", newColour), builder.determinePlanetHue((float) 0.81679));
 		
 	}
 	
 	@Test
 	public void testDeterminePlanetHueBlue() {
-		Integer baseHex = Integer.parseInt(SolarSystemConstants.BLUE, 16);
+		Integer baseHex = Integer.decode(SolarSystemConstants.BLUE);
 		Integer mult = SolarSystemConstants.MULT_BLUE;
 		
 		Integer comp = 2;
 		Integer addOn = comp * mult;
-		Integer newColour = baseHex + addOn;
+		Integer newColour = baseHex - addOn;
 		
 		builder.buildColour(testBlueLow);
 		assertEquals(SolarSystemConstants.BLUE, builder.getResult().getColour());
 		
-		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.19007));
+		assertEquals(String.format("%06x", newColour), builder.determinePlanetHue((float) 0.19007));
 		
 		comp = 9;
 		addOn = comp * mult;
-		newColour = baseHex + addOn;
+		newColour = baseHex - addOn;
 		
 		builder.buildColour(testBlueHigh);
 		assertEquals(SolarSystemConstants.BLUE, builder.getResult().getColour());
 		
-		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.88427));
+		assertEquals(String.format("%06x", newColour), builder.determinePlanetHue((float) 0.88427));
 		
 	}
 	
 	@Test
 	public void testDeterminePlanetHuePurple() {
-		Integer baseHex = Integer.parseInt(SolarSystemConstants.PURPLE, 16);
+		Integer baseHex = Integer.decode(SolarSystemConstants.PURPLE);
 		Integer mult = SolarSystemConstants.MULT_PURPLE;
 		
 		Integer comp = 4;
 		Integer addOn = comp * mult;
-		Integer newColour = baseHex + addOn;
+		Integer newColour = baseHex - addOn;
 		
 		builder.buildColour(testPurpleLow);
 		assertEquals(SolarSystemConstants.PURPLE, builder.getResult().getColour());
 		
-		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.40862));
+		assertEquals(String.format("%06x", newColour), builder.determinePlanetHue((float) 0.40862));
 		
 		comp = 5;
 		addOn = comp * mult;
-		newColour = baseHex + addOn;
+		newColour = baseHex - addOn;
 		
 		builder.buildColour(testPurpleHigh);
 		assertEquals(SolarSystemConstants.PURPLE, builder.getResult().getColour());
 		
-		assertEquals(String.valueOf(newColour), builder.determinePlanetHue((float) 0.52370));
+		assertEquals(String.format("%06x", newColour), builder.determinePlanetHue((float) 0.52370));
 
 	}
 	
