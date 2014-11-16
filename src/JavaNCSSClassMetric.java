@@ -27,27 +27,46 @@ public class JavaNCSSClassMetric {
 		this.complexityNumber = complexityNumber;
 		this.complexityDensity = complexityDensity;
 	}
-		
+	
+	/**
+	 * @return The fully qualified class name which includes the class path.
+	 */
 	public String getQualifiedClassName() {
 		return qualifiedClassName;
 	}
-	
+	/**
+	 * @return The simple (non-qualified) class name
+	 */
 	public String getClassName() {
 		return className;
 	}
 	
+	/**
+	 * @return The number of methods contained within a class
+	 */
 	public int getNumMethods() {
 		return numMethods;
 	}
 	
+	/**
+	 * @return The average method length for the methods in the class. Method
+	 * length is calculated using the Non-Commenting Source Statements
+	 * metric.
+	 */
 	public float getAverageMethodLength() {
 		return averageMethodLength;
 	}
 	
+	/**
+	 * @return The code complexity number  (CCN or McCabe Metric) for the class.
+	 */
 	public int getComplexityNumber () {
 		return complexityNumber;
 	}
 	
+	/**
+	 * @return The code complexity density (CCN / Total NCSS Method Sum)
+	 */
 	public float getComplexityDensity() {
 		return complexityDensity;
 	}

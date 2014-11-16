@@ -1,20 +1,20 @@
 import java.io.File;
 import java.util.List;
 
-import org.junit.Assert.*;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Unit tests for the JavaNCSSParser
+ * A Manual test that shows sample output from the JavaNCSS parser
+ * given a typical sample input xml file that would be generated
+ * by JavaNCSS.
  * @author Jeremy
+ *
  */
-public class JavaNCSSParserTest {
-	
+public class JavaNCSSParserManualTest {
 	@Test
-	public void sampleTest() {
+	public void manualTest() {
 		JavaNCSSParser javaNCSSParser = new JavaNCSSParser();
-		JavaNCSSMetrics javaNCSSMetrics = javaNCSSParser.getJavaNCSSMetrics(new File("test/javaNCSSTest.xml"));
+		JavaNCSSMetrics javaNCSSMetrics = javaNCSSParser.getJavaNCSSMetrics(new File("test/javaNCSSSampleOutput.xml"));
 		List<JavaNCSSClassMetric> javaNCSSMetricsList = javaNCSSMetrics.getClassMetricsList();
 		
 		for (JavaNCSSClassMetric classMetric : javaNCSSMetricsList) {
