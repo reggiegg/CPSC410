@@ -11,6 +11,9 @@ public class JavaNCSSMetrics {
 		this.classMetrics = classMetrics;
 	}
 	
+	/**
+	 * @return a list of parsed class metrics.
+	 */
 	public List<JavaNCSSClassMetric> getClassMetricsList() {
 		return classMetrics;
 	}
