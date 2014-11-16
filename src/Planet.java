@@ -10,18 +10,18 @@ public class Planet {
 	private Integer solarSystemId;
 	private Integer radius;
 	private float axis;
-	private Integer period;
+	private Double period;
 	private String name;
 	private String hue;
 	private Integer starRadius = 1;
 	private Integer starTeff = 1; 
 	
-	public Planet(Integer id, String pName, Integer pRadius, float semimajorAxis, Integer pPeriod, String pHue) {
+	public Planet(Integer id, String pName, Integer pRadius, float semimajorAxis, Double modperiod, String pHue) {
 		solarSystemId = id;
 		name = pName;
 		radius = pRadius;
 		axis = semimajorAxis;
-		period = pPeriod;
+		period = modperiod;
 		hue = pHue;
 	}
 	
@@ -46,7 +46,7 @@ public class Planet {
 	}
 	
 	// corresponds to "churn" in project (speed set for entire project/solar system)
-	public void setPeriod(Integer pPeriod) {
+	public void setPeriod(Double pPeriod) {
 		period = pPeriod;
 	}
 	
@@ -81,7 +81,7 @@ public class Planet {
 		return axis;
 	}
 	
-	public Integer getPeriod() {
+	public Double getPeriod() {
 		return period;
 	}
 	

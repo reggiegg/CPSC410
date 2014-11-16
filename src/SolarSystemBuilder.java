@@ -74,6 +74,7 @@ public class SolarSystemBuilder {
 		for (JavaNCSSClassMetric jcm : jMetrics.getClassMetricsList()) {
 
 			Integer period = determinePlanetPeriod(system.getSpeed());
+			Double modperiod = period * (Math.random()*1.1+.99);
 
 			// JavaNCSS info
 			String name = jcm.getClassName();
@@ -94,7 +95,7 @@ public class SolarSystemBuilder {
 			System.out.println(numRevisions);
 			Float axis = determinePlanetAxis(numRevisions);
 
-			Planet p = new Planet(id, name, radius, axis, period, hue);  
+			Planet p = new Planet(id, name, radius, axis, modperiod, hue);  
 			planets.add(p);
 		}
 
