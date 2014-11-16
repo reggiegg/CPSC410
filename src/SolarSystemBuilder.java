@@ -73,13 +73,14 @@ public class SolarSystemBuilder {
 
 		for (JavaNCSSClassMetric jcm : jMetrics.getClassMetricsList()) {
 
-			Integer period = determinePlanetPeriod(system.getSpeed());
 
 			// JavaNCSS info
 			String name = jcm.getClassName();
 			Integer radius = determinePlanetRadius(new Integer(jcm.getNumMethods()));
 			String hue = determinePlanetHue(new Float(jcm.getComplexityDensity()));
 
+			Integer period = determinePlanetPeriod(system.getSpeed());
+			
 			// StatSVN info
 			Integer numRevisions = new Integer(0);
 			
@@ -103,12 +104,13 @@ public class SolarSystemBuilder {
 
 	protected String determinePlanetHue(Float complexity) {
 		String baseColour = system.getColour();
-		Integer baseHex = Integer.parseInt(baseColour, 16);
+		Integer baseHex = Integer.decode(baseColour);
 		Integer multiplier = getMultiplier(baseColour);
 		Integer comp = Math.round(complexity * 10);
 		Integer addOn = comp * multiplier;
-		Integer newColour = baseHex + addOn;
-		return String.valueOf(newColour);
+		Integer newColour = baseHex - addOn;
+		String colour = String.format("%06x", newColour);
+		return colour;
 	}
 
 	protected Integer getMultiplier(String colour) {
@@ -127,20 +129,22 @@ public class SolarSystemBuilder {
 	}
 
 	protected Integer determinePlanetPeriod(Integer speed) {
-		Integer period;
+		Integer base_period;
 		if (speed <= SolarSystemConstants.SPEED_1)
-			period = SolarSystemConstants.PERIOD_6;
+			base_period = SolarSystemConstants.PERIOD_6;
 		else if (SolarSystemConstants.SPEED_1 < speed && speed <= SolarSystemConstants.SPEED_2) 
-			period = SolarSystemConstants.PERIOD_5;
+			base_period = SolarSystemConstants.PERIOD_5;
 		else if (SolarSystemConstants.SPEED_2 < speed && speed <= SolarSystemConstants.SPEED_3)
-			period = SolarSystemConstants.PERIOD_4;
+			base_period = SolarSystemConstants.PERIOD_4;
 		else if (SolarSystemConstants.SPEED_3 < speed && speed <= SolarSystemConstants.SPEED_4)
-			period = SolarSystemConstants.PERIOD_3;
+			base_period = SolarSystemConstants.PERIOD_3;
 		else if (SolarSystemConstants.SPEED_4 < speed && speed <= SolarSystemConstants.SPEED_5)
-			period = SolarSystemConstants.PERIOD_2;
+			base_period = SolarSystemConstants.PERIOD_2;
 		else 
-			period = SolarSystemConstants.PERIOD_1;
-		return period;
+			base_period = SolarSystemConstants.PERIOD_1;
+		
+		//Integer period = base_period*radius;
+		return base_period;
 	}
 
 	protected Float determinePlanetAxis(Integer numRevisions) {
