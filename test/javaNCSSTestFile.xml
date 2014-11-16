@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<javancsstest>
+    <!-- 2 method class test -->
+	<function>
+      <name>package.subPackage.TestClass1.testMethod1()</name>
+      <ncss>1</ncss>
+      <ccn>2</ccn>
+    </function>
+	<function>
+      <name>package.subPackage.TestClass1.testMethod2()</name>
+      <ncss>3</ncss>
+      <ccn>4</ccn>
+    </function>
+	
+	<!-- duplicate class name, different qualified names test -->
+	<function>
+      <name>package.differentPackage1.DuplicateClassName.testMethod1()</name>
+      <ncss>2</ncss>
+      <ccn>2</ccn>
+    </function>
+	<function>
+      <name>package.differentPackage2.DuplicateClassName.testMethod1()</name>
+      <ncss>7</ncss>
+      <ccn>7</ccn>
+    </function>
+	
+	<!-- subpackages test -->
+	<function>
+      <name>package.subPackage1.subPackage2.subpackage3.PackageClass.testMethod1()</name>
+      <ncss>3</ncss>
+      <ccn>3</ccn>
+    </function>
+	<function>
+      <name>package.subPackage1.subPackage2.subpackage3.PackageClass.testMethod2()</name>
+      <ncss>11</ncss>
+      <ccn>11</ccn>
+    </function>
+	
+	<!-- dots in parameters list test -->
+    <function>
+      <name>package.subpackage.DotClass.dotMethod(java.io.PrintStream)</name>
+      <ncss>4</ncss>
+      <ccn>4</ccn>
+    </function>
+	
+	<!-- params separated by commas test -->
+    <function>
+      <name>package.subpackage.ParamsTestClass.paramsTestMethod(int,long,long,long)</name>
+      <ncss>5</ncss>
+      <ccn>5</ccn>
+    </function>
+	
+	<non-function-tag>
+	  <name>NonFunctionTagClass.testMethod(int,long,long,long)</name>
+      <ncss>999</ncss>
+      <ccn>999</ccn>
+	</non-function-tag>
+</javancsstest>
