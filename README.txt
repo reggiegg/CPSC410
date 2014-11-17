@@ -6,7 +6,7 @@ HOW TO SET UP AND RUN OUR PROJECT
 ! PRECONDITIONS:                      !
 ! java and subversion must be         !
 ! installed.                          !
-! 					                  !
+!                                     !
 ! Also, due to the differences        !
 ! between Linux and Windows file      !
 ! systems our project will only       !
