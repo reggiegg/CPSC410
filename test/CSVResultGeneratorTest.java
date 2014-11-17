@@ -17,9 +17,9 @@ public class CSVResultGeneratorTest {
 	
 	@Before
 	public void setup() {
-		planets.add(new Planet(new Integer(12), "awesome", new Integer(7), new Integer(10), new Integer(13), "009933"));
-		planets.add(new Planet(new Integer(34), "radical", new Integer(8), new Integer(11), new Integer(14), "FFFF00"));
-		planets.add(new Planet(new Integer(56), "chill", new Integer(9), new Integer(12), new Integer(15), "0A0B0C"));
+		planets.add(new Planet(new Integer(12), "awesome", new Integer(7), new Integer(10), new Double(13), "009933"));
+		planets.add(new Planet(new Integer(34), "radical", new Integer(8), new Integer(11), new Double(14), "FFFF00"));
+		planets.add(new Planet(new Integer(56), "chill", new Integer(9), new Integer(12), new Double(15), "0A0B0C"));
 		system.setPlanets(planets);
 	}
 	

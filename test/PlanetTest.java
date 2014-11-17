@@ -14,7 +14,7 @@ public class PlanetTest {
 	private Integer testId = new Integer(13);
 	private Integer testRadius = new Integer(7);
 	private Float testAxis = new Float(0.7);
-	private Integer testPeriod = new Integer(3);
+	private Double testPeriod = new Double(3);
 	private String testHue = "FF0000";
 	private Integer testStarRadius = new Integer(1);
 	private Integer testTeff = new Integer(1);
@@ -27,11 +27,11 @@ public class PlanetTest {
 	
 	@Test
 	public void testConstructor() {
-		Planet pla = new Planet(new Integer(123), "planetName", new Integer(5), new Float(0.8), new Integer(15), "009933");
+		Planet pla = new Planet(new Integer(123), "planetName", new Integer(5), new Float(0.8), new Double(15), "009933");
 		assertEquals(new Integer(123), pla.getSolarSystemId());
 		assertEquals(new Integer(5), pla.getPlanetRadius());
 		assertTrue(new Float(0.79) < pla.getSemimajorAxis() && pla.getSemimajorAxis() < new Float(0.81));
-		assertEquals(new Integer(15), pla.getPeriod());
+		assertEquals(new Double(15), pla.getPeriod());
 		assertEquals("planetName", pla.getPlanetName());
 		assertEquals("009933", pla.getHue());
 		assertEquals(testStarRadius, pla.getStarRadius());
@@ -69,8 +69,8 @@ public class PlanetTest {
 	@Test
 	public void testSetPeriod() {
 		assertEquals(testPeriod, planet.getPeriod());
-		planet.setPeriod(new Integer(31));
-		assertEquals(new Integer(31), planet.getPeriod());
+		planet.setPeriod(new Double(31));
+		assertEquals(new Double(31), planet.getPeriod());
 	}
 	
 	@Test
