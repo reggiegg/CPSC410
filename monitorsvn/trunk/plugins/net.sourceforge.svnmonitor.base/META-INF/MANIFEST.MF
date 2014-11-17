@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Base Plug-in
+Bundle-SymbolicName: net.sourceforge.svnmonitor.base
+Bundle-Version: 1.0.0
+Bundle-Activator: net.sourceforge.svnmonitor.base.BaseActivator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: net.sourceforge.svnmonitor.base.osgi

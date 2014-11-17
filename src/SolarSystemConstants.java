@@ -54,19 +54,19 @@ public class SolarSystemConstants {
 	public static final Integer PERIOD_5 = 15;
 	public static final Integer PERIOD_6 = 18;
 
-	public static final Integer RADIUS_1 = 10;
-	public static final Integer RADIUS_2 = 20;
-	public static final Integer RADIUS_3 = 30;
-	public static final Integer RADIUS_4 = 40;
-	public static final Integer RADIUS_5 = 50;
-	public static final Integer RADIUS_6 = 60;
+	public static final Integer RADIUS_1 = 5;
+	public static final Integer RADIUS_2 = 10;
+	public static final Integer RADIUS_3 = 15;
+	public static final Integer RADIUS_4 = 20;
+	public static final Integer RADIUS_5 = 25;
+	public static final Integer RADIUS_6 = 30;
 	
-	public static final Float AXIS_1 = new Float(0.2);
-	public static final Float AXIS_2 = new Float(0.4);
-	public static final Float AXIS_3 = new Float(0.6);
-	public static final Float AXIS_4 = new Float(0.8);
-	public static final Float AXIS_5 = new Float(1.0);
-	public static final Float AXIS_6 = new Float(1.2);
+	public static final Float AXIS_1 = new Float(0.3);
+	public static final Float AXIS_2 = new Float(0.5);
+	public static final Float AXIS_3 = new Float(0.7);
+	public static final Float AXIS_4 = new Float(0.9);
+	public static final Float AXIS_5 = new Float(1.1);
+	public static final Float AXIS_6 = new Float(1.3);
 	
 	// For hex math
 	

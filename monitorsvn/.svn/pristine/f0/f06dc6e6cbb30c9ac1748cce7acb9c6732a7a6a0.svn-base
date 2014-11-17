@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="net.sourceforge.svnmonitor.workbench.SvnMonitorApplication">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="net.sourceforge.svnmonitor.workbench.Perspective"
+            fixed="false"
+            id="net.sourceforge.svnmonitor.workbench.perspective"
+            name="RCP Perspective">
+      </perspective>
+   </extension>
+   <extension
+         id="svn_commit_monitor"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="net.sourceforge.svnmonitor.workbench.application"
+            name="Svn Commit Monitor">
+         <property
+               name="appName"
+               value="Svn Commit Monitor">
+         </property>
+         <property
+               name="aboutText"
+               value="Svn Commit Monitor">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="000000">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="250,10,330,15">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="250,30,330,10">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+      </product>
+   </extension>
+
+</plugin>

@@ -1,0 +1,11 @@
+About sdSVN
+
+  A Subversion Client GUI based on Swing Application Framework and SVNKit.
+
+JNLP Installer
+
+  JNLP based installer: {{http://sd-svn.sourceforge.net/webstart/sdsvn.jnlp}}
+
+Maven Repo
+
+  Maven repo: {{http://sd-svn.sourceforge.net/maven2}}

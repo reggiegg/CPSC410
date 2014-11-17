@@ -1,0 +1,36 @@
+
+
+<project name="JMeldDiffView">
+   <body>
+      <head>
+         <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-23198036-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+         </script>
+      </head>
+      <menu ref="parent" />
+      <menu ref="modules" />
+      <menu ref="reports" />
+   </body>
+   <poweredBy>
+      <logo name="Maven" 
+          href="http://maven.apache.org/"
+          img="http://maven.apache.org/images/logos/maven-feather.png"/>
+
+      <logo name=""
+          href="http://sourceforge.net/projects/sd-svn"
+          img="http://sflogo.sourceforge.net/sflogo.php?group_id=377929&amp;type=13" 
+          width="120" 
+          height="30" 
+          alt="Get sdSVN at SourceForge.net. Fast, secure and Free Open Source software downloads"/>
+   </poweredBy>      
+</project>

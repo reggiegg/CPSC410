@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Repoview Plug-in
+Bundle-SymbolicName: net.sourceforge.svnmonitor.repoview; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: net.sourceforge.svnmonitor.repoview.RepoViewActivator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: net.sourceforge.svnmonitor.base.osgi,
+ net.sourceforge.svnmonitor.model

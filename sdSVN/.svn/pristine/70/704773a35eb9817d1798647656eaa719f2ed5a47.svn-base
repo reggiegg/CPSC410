@@ -1,0 +1,6 @@
+okButton.text=Ok
+cancelButton.text=Cancel
+Form.title=Commit files
+recursiveCheckBox.text=Recursive
+recursiveCheckBox.toolTipText=Recursively commit directories
+messageComboBox.toolTipText=Previously used commit messages

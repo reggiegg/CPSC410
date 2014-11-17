@@ -1,0 +1,6 @@
+bin.includes = META-INF/,\
+               jna.jar,\
+               svnkit.jar,\
+               svnkit-cli.jar,\
+               svnkit-javahl.jar,\
+               trilead.jar

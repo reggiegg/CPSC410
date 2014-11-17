@@ -1,0 +1,28 @@
+<jnlp spec="$jnlpspec" version="${project.Version}-r$buildNumber" codebase="http://sd-svn.sourceforge.net/webstart/" href="$outputFile">
+  <!-- JNLP File for sdSVN-${project.Version}-r${buildNumber} -->
+  <information>
+    <title>$project.Name</title>
+    <vendor>$project.Organization.Name</vendor>
+    <homepage href="$project.Organization.Url"/>
+    <description>$project.Description</description>
+    <icon href="lib/images/sdSVN.png"/>
+#if($offlineAllowed)
+    <offline-allowed/>
+#end
+    <shortcut online="true">
+      <desktop/>
+      <menu submenu="sdSVN"/>
+    </shortcut>
+  </information>
+#if($allPermissions)
+  <security>
+    <all-permissions/>
+  </security>
+#end
+  <update check="timeout" policy="prompt-update"/>
+  <resources>
+    <j2se version="1.6+" java-vm-args="-Xmx1g"/>
+    $dependencies
+  </resources>
+  <application-desc main-class="$mainClass"/>
+</jnlp>

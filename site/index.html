@@ -77,14 +77,14 @@ d3.csv("planets.csv", type, function(error, planets) {
       .style(prefix + "animation-duration", function(d) { return t(d.period) + "s"; })
       .style(prefix + "transform-origin", function(d) { return d.system.radius + "px " + d.system.radius + "px"; })
     .append("circle")
-      .attr("style", function(d) { return "fill:#"+d.hue.toString().substring(1,7);})
+      .attr("style", function(d) { return "fill:#"+d.hue;})
       .attr("transform", function(d) { return "translate(" + d.system.radius + "," + d.system.radius + ")"; })
       .attr("cx", function(d) { return x(d.semimajor_axis); })
-      .attr("r", function(d) { return r(d.planet_radius); })
-      .each(function(){
+      .attr("r", function(d) { return d.planet_radius; });
+      // .each(function(){
 
-        $(this).css(prefix+"transform", "rotate("+ Math.ceil((Math.random()*360))+"deg)");
-      });
+      //   $(this).css(prefix+"transform", "rotate("+ Math.ceil((Math.random()*360))+"deg)");
+      // });
 
 
 });

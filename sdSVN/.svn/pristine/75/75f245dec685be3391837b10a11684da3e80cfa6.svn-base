@@ -1,0 +1,14 @@
+findNode.Action.shortDescription=
+findNode.Action.text=Find
+Form.title=Repository Tree
+selectedRepoTextField.text=
+okButton.text=Ok
+cancelButton.text=Cancel
+searchTextField.text=
+findButton.text=Find
+locationLabel.text=Repo Location:
+locationButton.text=Apply
+miCopy.text=Copy
+miDelete.text=Delete
+miCreate.text=New Folder
+locationLabel.toolTipText=Enter URL for the repository you want to use

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Logview Plug-in
+Bundle-SymbolicName: net.sourceforge.svnmonitor.logview; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: net.sourceforge.svnmonitor.logview.LogViewActivator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
