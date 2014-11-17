@@ -27,10 +27,10 @@ public class Initiator {
 
 	public static void main(String[] args) {
 		
-		// temporary interface for defining arguments
-		Scanner sc = new Scanner(System.in);
-		args = sc.nextLine().split(" +");
-		sc.close();	
+//		// temporary interface for defining arguments
+//		Scanner sc = new Scanner(System.in);
+//		args = sc.nextLine().split(" +");
+//		sc.close();	
 
 		if (args.length != 1){
 			printUsageInstructions();
@@ -52,10 +52,7 @@ public class Initiator {
 				
 				//Generate logfile 	
 				System.out.println("Generating StatSVNLogfile...");
-				System.out.println(modulepath.getAbsolutePath());
-				System.out.println("svn log -v --xml " +modulepath.getAbsolutePath() + " > "+ logfile.getPath());
 				Process statSVNLogfileProcess = rt.exec("svn log -v --xml " +modulepath.getPath());
-//				statSVNLogfileProcess.waitFor();
 				BufferedWriter out = new BufferedWriter(new FileWriter(logfile));
 				BufferedReader in = new BufferedReader(  
 						new InputStreamReader(statSVNLogfileProcess.getInputStream()));  
@@ -66,11 +63,11 @@ public class Initiator {
 				in.close();
 				out.close();
 				
-//				if (statSVNLogfileProcess.exitValue() != 0){
-//					System.out.println("Generating log file failed");
-//					throw new IOException("svn did not properly execute.");
-//					
-//				};
+				if (statSVNLogfileProcess.exitValue() != 0){
+					System.out.println("Generating log file failed");
+					throw new IOException("svn logging did not properly execute.");
+					
+				};
 				
 				statSVNLogfileProcess.destroy();
 				
@@ -80,7 +77,6 @@ public class Initiator {
 				}
 				
 				System.out.println("Executing StatSVN...");
-				System.out.println("java -jar statsvn.jar -xml "+logfile.getPath()+" "+modulepath.getPath());
 				Process statSVNProcess = rt.exec("java -jar statsvn.jar -xml "+logfile.getPath()+" "+modulepath.getPath());
 				statSVNProcess.waitFor();				
 				if (statSVNProcess.exitValue() != 0){
@@ -90,18 +86,16 @@ public class Initiator {
 				}
 				statSVNProcess.destroy();
 				System.out.println("StatSVN success. New file at "+statSVNStats.getAbsolutePath());
-							
+						
 								
 				File javaNCSSStats = new File("javancss-statistics.xml");
 				if (javaNCSSStats.exists()){
 					javaNCSSStats.delete();
-				}				
+				}		
+				
 				System.out.println("Executing JavaNCSS...");
-				
-				System.out.println("javancss-32.53/bin/javancss -recursive -xml -all -out "+javaNCSSStats.getAbsolutePath()+" "+modulepath.getAbsolutePath());
 				Process javaNCSSProcess = rt.exec("javancss-32.53/bin/javancss -recursive -xml -all -out "+javaNCSSStats.getAbsolutePath()+" "+modulepath.getAbsolutePath());
-				javaNCSSProcess.waitFor();
-				
+				javaNCSSProcess.waitFor();				
 				if (javaNCSSProcess.exitValue() != 0){
 					System.out.println("JavaNCSS Failed.");
 					throw new IOException("javaNCSS did not properly execute.");
@@ -118,26 +112,25 @@ public class Initiator {
 				CodeBaseDataAggregator CBDA = new CodeBaseDataAggregator(javaNCSSMetrics, statSVNMetrics);
 				
 				CSVResultGenerator.writeToCSV(CBDA.getSolarSystem());
+				
+				if (Desktop.isDesktopSupported()){					
+					Desktop.getDesktop().browse((new File("site/index.html")).toURI());				
+				}else {
+					rt.exec("xdg-open "+((new File("site/index.html")).toURI()));
+				}
+				
+				System.out.println("Cleaning up...");
+				statSVNStats.delete();
+				javaNCSSStats.delete();
+				logfile.delete();
+				
 								
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-									
-			try {			
-				if (Desktop.isDesktopSupported()){
-					System.out.println((new File("../site/index.html")).getAbsolutePath());
-					
-					Desktop.getDesktop().browse((new File("site/index.html")).toURI());				
-				}else {
-					Runtime rt = Runtime.getRuntime();
-					rt.exec("xdg-open "+((new File("site/index.html")).toURI()));
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-									
+												
 		}
 
 	}

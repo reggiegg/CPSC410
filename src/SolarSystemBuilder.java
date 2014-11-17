@@ -92,7 +92,6 @@ public class SolarSystemBuilder {
 				}
 			}
 
-			System.out.println(numRevisions);
 			Float axis = determinePlanetAxis(numRevisions);
 
 			Planet p = new Planet(id, name, radius, axis, modperiod, hue);  
