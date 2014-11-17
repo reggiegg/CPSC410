@@ -33,12 +33,12 @@ public class SolarSystemConstants {
 	
 	// Output values
 	
-	public static final String RED = "FF0000"; 
-	public static final String ORANGE = "FFA500";
-	public static final String YELLOW = "FFFF00";
-	public static final String GREEN = "00FF00"; 
-	public static final String BLUE = "0000FF"; 
-	public static final String PURPLE = "800080";
+	public static final String RED = "0xFF0000"; 
+	public static final String ORANGE = "0xFFA500";
+	public static final String YELLOW = "0xFFFF00";
+	public static final String GREEN = "0x00FF00"; 
+	public static final String BLUE = "0x0000FF"; 
+	public static final String PURPLE = "0x800080";
 	
 	public static final Integer SPEED_1 = 3;
 	public static final Integer SPEED_2 = 6;
@@ -70,12 +70,12 @@ public class SolarSystemConstants {
 	
 	// For hex math
 	
-	public static final Integer MULT_RED = -0x100000;
-	public static final Integer MULT_ORANGE = -0x101000;
-	public static final Integer MULT_YELLOW = -0x111100;
-	public static final Integer MULT_GREEN = -0x001000;
-	public static final Integer MULT_BLUE = -0x000010;
-	public static final Integer MULT_PURPLE = -0x100010;
+	public static final Integer MULT_RED = 0x100000;
+	public static final Integer MULT_ORANGE = 0x101000;
+	public static final Integer MULT_YELLOW = 0x111100;
+	public static final Integer MULT_GREEN = 0x001000;
+	public static final Integer MULT_BLUE = 0x000010;
+	public static final Integer MULT_PURPLE = 0x100010;
 	
 	
 }
