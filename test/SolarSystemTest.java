@@ -14,9 +14,10 @@ public class SolarSystemTest {
 
 	private Integer testInt = new Integer(5);
 	private String testColour = "colour";
+	private Double testDouble = new Double(4);
 	
-	private Planet testPlanet = new Planet(testInt, "name", testInt, testInt, testInt, "otherString");
-	private Planet testPlanet2 = new Planet(testInt, "name2", testInt, testInt, testInt, "otherString2");
+	private Planet testPlanet = new Planet(testInt, "name", testInt, testInt, testDouble, "otherString");
+	private Planet testPlanet2 = new Planet(testInt, "name2", testInt, testInt, testDouble, "otherString2");
 	
 	private SolarSystem testSystem;
 	private SolarSystem testSystem2;
