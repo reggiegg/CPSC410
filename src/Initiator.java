@@ -55,7 +55,7 @@ public class Initiator {
 				System.out.println(modulepath.getAbsolutePath());
 				System.out.println("svn log -v --xml " +modulepath.getAbsolutePath() + " > "+ logfile.getPath());
 				Process statSVNLogfileProcess = rt.exec("svn log -v --xml " +modulepath.getPath());
-				statSVNLogfileProcess.waitFor();
+//				statSVNLogfileProcess.waitFor();
 				BufferedWriter out = new BufferedWriter(new FileWriter(logfile));
 				BufferedReader in = new BufferedReader(  
 						new InputStreamReader(statSVNLogfileProcess.getInputStream()));  
