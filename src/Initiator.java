@@ -1,6 +1,10 @@
 import java.awt.Desktop;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -28,25 +32,55 @@ public class Initiator {
 		args = sc.nextLine().split(" +");
 		sc.close();	
 
-		if (args.length != 2){
+		if (args.length != 1){
 			printUsageInstructions();
 		}else{
 			
 			//String paths = "/home/reggie/Documents/CPSC410/project/logfile.log /home/reggie/Documents/CPSC410/project/testing/";
 
-			File logfile =  new File(args[0]);
-			File modulepath = new File(args[1]);
+			
+			File modulepath = new File(args[0]);
+			File logfile = new File("logfile.log");
+			if (logfile.exists()){
+				logfile.delete();
+			}
+			
 								
 			try {
 				
 				Runtime rt = Runtime.getRuntime();
-											
+				
+				//Generate logfile 	
+				System.out.println("Generating StatSVNLogfile...");
+				System.out.println(modulepath.getAbsolutePath());
+				System.out.println("svn log -v --xml " +modulepath.getAbsolutePath() + " > "+ logfile.getPath());
+				Process statSVNLogfileProcess = rt.exec("svn log -v --xml " +modulepath.getPath());
+				statSVNLogfileProcess.waitFor();
+				BufferedWriter out = new BufferedWriter(new FileWriter(logfile));
+				BufferedReader in = new BufferedReader(  
+						new InputStreamReader(statSVNLogfileProcess.getInputStream()));  
+				String line = null;  
+				while ((line = in.readLine()) != null) {  
+						out.write(line);  
+				}
+				in.close();
+				out.close();
+				
+//				if (statSVNLogfileProcess.exitValue() != 0){
+//					System.out.println("Generating log file failed");
+//					throw new IOException("svn did not properly execute.");
+//					
+//				};
+				
+				statSVNLogfileProcess.destroy();
+				
 				File statSVNStats = new File("repo-statistics.xml");				
 				if (statSVNStats.exists()){
 					statSVNStats.delete();
 				}
 				
 				System.out.println("Executing StatSVN...");
+				System.out.println("java -jar statsvn.jar -xml "+logfile.getPath()+" "+modulepath.getPath());
 				Process statSVNProcess = rt.exec("java -jar statsvn.jar -xml "+logfile.getPath()+" "+modulepath.getPath());
 				statSVNProcess.waitFor();				
 				if (statSVNProcess.exitValue() != 0){
