@@ -27,7 +27,7 @@ public class Initiator {
 
 	public static void main(String[] args) {
 		
-//		// temporary interface for defining arguments
+//		// temporary console interface for defining arguments within Eclipse; uncomment to use!
 //		Scanner sc = new Scanner(System.in);
 //		args = sc.nextLine().split(" +");
 //		sc.close();	
@@ -35,9 +35,6 @@ public class Initiator {
 		if (args.length != 1){
 			printUsageInstructions();
 		}else{
-			
-			//String paths = "/home/reggie/Documents/CPSC410/project/logfile.log /home/reggie/Documents/CPSC410/project/testing/";
-
 			
 			File modulepath = new File(args[0]);
 			File logfile = new File("logfile.log");

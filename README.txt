@@ -28,3 +28,7 @@ HOW TO SET UP AND RUN OUR PROJECT
 	$java -jar sssvnviz.jar sdSVN
 
 3. VIEW RESULTS
+
+	Double-click on site/index.html
+	To view multiple projects in the same browser screen, you will need to put all .csv 
+	output files into a single planets.csv
