@@ -107,6 +107,9 @@ public class SolarSystemBuilder {
 		Integer multiplier = getMultiplier(baseColour);
 		Integer comp = Math.round(complexity * 10);
 		Integer addOn = comp * multiplier;
+		if (addOn > baseHex) {
+			addOn = baseHex;
+		}
 		Integer newColour = baseHex - addOn;
 		String colour = String.format("%06x", newColour);
 		return colour;

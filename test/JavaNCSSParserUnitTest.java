@@ -22,7 +22,6 @@ public class JavaNCSSParserUnitTest {
 	@Before
 	public void initilizeTests() {
 		JavaNCSSParser javaNCSSParser = new JavaNCSSParser();
-		 // 
 		JavaNCSSMetrics javaNCSSMetrics = javaNCSSParser.getJavaNCSSMetrics(new File("test/javaNCSSTestFile.xml"));
 		
 		List<JavaNCSSClassMetric> javaNCSSMetricsList = javaNCSSMetrics.getClassMetricsList();
