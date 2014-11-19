@@ -79,18 +79,8 @@ d3.csv("planets.csv", type, function(error, planets) {
       .attr("transform", function(d) { return "translate(" + d.system.radius + "," + d.system.radius + ")"; })
       .attr("cx", function(d) { return x(d.semimajor_axis); })
       .attr("r", function(d) { return d.planet_radius; });
-      // .each(function(){
-
-      //   $(this).css(prefix+"transform", "rotate("+ Math.ceil((Math.random()*360))+"deg)");
-      // });
-
 
 });
-
-// $(document).ready(function(){
-//   degrees=0;
-//   $(".planet").each($(this).style(prefix+"transform", "rotate("+ (degrees+=20) +"deg)"));
-// });
 
 function type(d) {
   d.period = +d.period;
