@@ -122,7 +122,8 @@ public class JavaNCSSParser {
 		Iterator<Entry<String, ClassInfo>> classInfoIter = classesMap.entrySet().iterator();
 		
 		while (classInfoIter.hasNext()) {
-			Map.Entry classInfoEntry = (Map.Entry) classInfoIter.next();
+			Map.Entry<String, ClassInfo> classInfoEntry = 
+					(Map.Entry<String, ClassInfo>) classInfoIter.next();
 			String qualifiedClassName = classInfoEntry.getKey().toString();
 			ClassInfo classInfo = (ClassInfo)classInfoEntry.getValue();
 			String className = classInfo.getClassName();
@@ -144,12 +145,6 @@ public class JavaNCSSParser {
 	/**
 	 * Internal class used by the JavaNCSSParser. ClassInfo objects are used in a hash table, and are
 	 * associated with a particular class name as the key.
-	 * Contains class metrics for:
-	 * - The class name
-	 * - The number of methods contained within a class
-	 * - The average method length for the methods in the class
-	 * - The code complexity number  (CCN or McCabe Metric) for the class
-	 * - The code complexity density (CCN / Total NCSS Method Sum)
 	 * @author Jeremy
 	 */
 	private class ClassInfo {
@@ -177,22 +172,37 @@ public class JavaNCSSParser {
 			this.complexitySum += methodComplexity;
 		}
 		
+		/**
+		 * @return The simple class name
+		 */
 		public String getClassName() {
 			return className;
 		}
 		
+		/**
+		 * @return The average method length for the methods in the class
+		 */
 		public float getAverageMethodLength() {
 			return ((float)methodLengthSum)/numMethods;
 		}
 		
+		/**
+		 * @return The number of methods contained within a class
+		 */
 		public int getNumMethods() {
 			return numMethods;
 		}
 		
+		/**
+		 * @return The code complexity number (CCN or McCabe Metric) for the class
+		 */
 		public int getComplexity() {
 			return complexitySum;
 		}
 		
+		/**
+		 * @return The code complexity density (CCN / Total NCSS Method Sum)
+		 */
 		public float getComplexityDensity() {
 			return ((float)complexitySum / methodLengthSum);
 		}
