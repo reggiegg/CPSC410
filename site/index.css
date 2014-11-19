@@ -13,14 +13,14 @@
 
 h3{
   font-family: 'pacificoregular';
-  color: #B9AF20;
+  color: #F6EB13;
   font-size: 3em;
   font-weight: normal;
   display: inline;
 }
 
 body {
-  background: #6666CC;  
+  background: #2A388F;  
   position: relative;
   text-align: center;
 }
@@ -33,7 +33,7 @@ body {
 
 .orbit {
   fill: none;
-  stroke: #B9AF20;
+  stroke: #F6EB13;
   stroke-width: 3;
   stroke-dasharray: 6,6;
 }
